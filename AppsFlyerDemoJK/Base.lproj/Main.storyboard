@@ -158,8 +158,8 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="_password" destination="qRn-4o-kdF" id="mlV-jc-cAP"/>
-                        <outlet property="_username" destination="cVG-un-YZ0" id="gX8-yK-RxQ"/>
+                        <outlet property="passwordTextField" destination="qRn-4o-kdF" id="rcs-PM-Fsu"/>
+                        <outlet property="usernameTextField" destination="cVG-un-YZ0" id="UpL-2R-Bu7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
