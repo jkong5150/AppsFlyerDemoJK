@@ -15,6 +15,7 @@
 		B25E1EF523F8A53D00B4AE6C /* AppsFlyerDemoJKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25E1EF423F8A53D00B4AE6C /* AppsFlyerDemoJKTests.swift */; };
 		B25E1F0023F8A53D00B4AE6C /* AppsFlyerDemoJKUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25E1EFF23F8A53D00B4AE6C /* AppsFlyerDemoJKUITests.swift */; };
 		B25E1F0F23F8A8D400B4AE6C /* skyline.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B25E1F0E23F8A8D400B4AE6C /* skyline.jpg */; };
+		B2867DDE23F9A2B20034882D /* DashboardHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2867DDD23F9A2B20034882D /* DashboardHomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		B25E1EFF23F8A53D00B4AE6C /* AppsFlyerDemoJKUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsFlyerDemoJKUITests.swift; sourceTree = "<group>"; };
 		B25E1F0123F8A53D00B4AE6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B25E1F0E23F8A8D400B4AE6C /* skyline.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = skyline.jpg; path = ../../../../../temp/skyline.jpg; sourceTree = "<group>"; };
+		B2867DDD23F9A2B20034882D /* DashboardHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardHomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 		B25E1ED323F8A53B00B4AE6C = {
 			isa = PBXGroup;
 			children = (
+				B2867DDD23F9A2B20034882D /* DashboardHomeViewController.swift */,
 				B25E1EDE23F8A53B00B4AE6C /* AppsFlyerDemoJK */,
 				B25E1EF323F8A53D00B4AE6C /* AppsFlyerDemoJKTests */,
 				B25E1EFE23F8A53D00B4AE6C /* AppsFlyerDemoJKUITests */,
@@ -270,6 +273,7 @@
 			files = (
 				B25E1EE223F8A53B00B4AE6C /* ViewController.swift in Sources */,
 				B25E1EE023F8A53B00B4AE6C /* AppDelegate.swift in Sources */,
+				B2867DDE23F9A2B20034882D /* DashboardHomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

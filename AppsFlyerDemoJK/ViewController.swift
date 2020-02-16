@@ -25,14 +25,17 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func loginButtonPressed(_ sender: Any) {
-        let username = _username.text
-        let password = _password.text
-        login()
+
+    @IBAction func LogInTapped(_ sender: Any) {
+        print("Login tapped")
+        navigateToDashHome()
+        
     }
     
-    private func login(){
-        
+    private func navigateToDashHome(){
+        let mainStoryboard = UIStoryboard(name:"Main",bundle:Bundle.main)
+        guard let dashHomeVC = mainStoryboard.instantiateViewController(withIdentifier: "DashboardHomeViewController") as? DashboardHomeViewController else {return }
+        present(dashHomeVC, animated: true, completion: nil)
     }
 
 
