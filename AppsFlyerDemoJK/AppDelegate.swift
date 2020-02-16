@@ -96,6 +96,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
     
     //Handle Direct Deep Link
     func onAppOpenAttribution(_ data: [AnyHashable: Any]) {
+        print("OAOA")
         if let link = data["link"]{
             print("link:  \(link)")
         }
