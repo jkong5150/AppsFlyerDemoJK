@@ -14,6 +14,7 @@
 		B25E1EEA23F8A53D00B4AE6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B25E1EE823F8A53D00B4AE6C /* LaunchScreen.storyboard */; };
 		B25E1EF523F8A53D00B4AE6C /* AppsFlyerDemoJKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25E1EF423F8A53D00B4AE6C /* AppsFlyerDemoJKTests.swift */; };
 		B25E1F0023F8A53D00B4AE6C /* AppsFlyerDemoJKUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25E1EFF23F8A53D00B4AE6C /* AppsFlyerDemoJKUITests.swift */; };
+		B25E1F0F23F8A8D400B4AE6C /* skyline.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B25E1F0E23F8A8D400B4AE6C /* skyline.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		B25E1EFB23F8A53D00B4AE6C /* AppsFlyerDemoJKUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppsFlyerDemoJKUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B25E1EFF23F8A53D00B4AE6C /* AppsFlyerDemoJKUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsFlyerDemoJKUITests.swift; sourceTree = "<group>"; };
 		B25E1F0123F8A53D00B4AE6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B25E1F0E23F8A8D400B4AE6C /* skyline.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = skyline.jpg; path = ../../../../../temp/skyline.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		B25E1EDE23F8A53B00B4AE6C /* AppsFlyerDemoJK */ = {
 			isa = PBXGroup;
 			children = (
+				B25E1F0D23F8A8AF00B4AE6C /* images */,
 				B25E1EDF23F8A53B00B4AE6C /* AppDelegate.swift */,
 				B25E1EE123F8A53B00B4AE6C /* ViewController.swift */,
 				B25E1EE323F8A53B00B4AE6C /* Main.storyboard */,
@@ -123,6 +126,14 @@
 				B25E1F0123F8A53D00B4AE6C /* Info.plist */,
 			);
 			path = AppsFlyerDemoJKUITests;
+			sourceTree = "<group>";
+		};
+		B25E1F0D23F8A8AF00B4AE6C /* images */ = {
+			isa = PBXGroup;
+			children = (
+				B25E1F0E23F8A8D400B4AE6C /* skyline.jpg */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B25E1EEA23F8A53D00B4AE6C /* LaunchScreen.storyboard in Resources */,
+				B25E1F0F23F8A8D400B4AE6C /* skyline.jpg in Resources */,
 				B25E1EE723F8A53D00B4AE6C /* Assets.xcassets in Resources */,
 				B25E1EE523F8A53B00B4AE6C /* Main.storyboard in Resources */,
 			);

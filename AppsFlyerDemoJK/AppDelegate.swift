@@ -16,6 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //SA AppsFlyer - add username and password to use.
+        let username = "appsflyer"
+        let password = "password"
+        let defaults = UserDefaults.standard
+        defaults.set(username,forKey: "username")
+        defaults.set(password,forKey: "password")
         return true
     }
 
