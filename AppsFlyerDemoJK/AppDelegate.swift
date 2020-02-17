@@ -14,6 +14,7 @@ import AppsFlyerLib
 class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
 
     var window: UIWindow?
+     var navigateTo: String?
     
     @objc func sendLaunch(app:Any) {
         AppsFlyerTracker.shared().trackAppLaunch()
@@ -100,6 +101,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
         if let link = data["link"]{
             print("link:  \(link)")
         }
+        for (key,value) in data{
+            print("key: \(key), value: \(value)")
+        }
+        
+        if let navigateTo = data["af_sub1"] as? String {
+            setNavigateTo(navigateTo: navigateTo)
+        }
     }
     func onAppOpenAttributionFailure(_ error: Error) {
         print("\(error)")
@@ -150,6 +158,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
         defaults.set(username,forKey: "username")
         defaults.set(password,forKey: "password")
         
+    }
+    
+    func getNavigateTo() -> String? {
+        return navigateTo
+    }
+    
+    func setNavigateTo(navigateTo: String?) {
+        self.navigateTo = navigateTo
     }
 
 }
