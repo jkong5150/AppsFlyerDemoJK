@@ -158,13 +158,13 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="_password" destination="qRn-4o-kdF" id="mlV-jc-cAP"/>
-                        <outlet property="_username" destination="cVG-un-YZ0" id="gX8-yK-RxQ"/>
+                        <outlet property="passwordTextField" destination="qRn-4o-kdF" id="rcs-PM-Fsu"/>
+                        <outlet property="usernameTextField" destination="cVG-un-YZ0" id="UpL-2R-Bu7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="601" y="106"/>
+            <point key="canvasLocation" x="425" y="23"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="eyQ-2p-ghg">
@@ -188,7 +188,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QXq-P6-Q6A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-454" y="106"/>
+            <point key="canvasLocation" x="1862" y="-391"/>
         </scene>
         <!--Dashboard Home View Controller-->
         <scene sceneID="MsO-he-Vko">
@@ -198,21 +198,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Main Dashboard" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gg3-p4-XDd">
-                                <rect key="frame" x="83" y="120" width="125" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main Dashboard" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gg3-p4-XDd">
+                                <rect key="frame" x="144.5" y="128" width="125" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DdR-pK-MCm">
+                                <rect key="frame" x="183" y="784" width="48" height="30"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutButtonTapped:" destination="NGs-vo-gd2" eventType="touchUpInside" id="c1l-7a-Egp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Gg3-p4-XDd" firstAttribute="top" secondItem="7rs-44-wHl" secondAttribute="top" constant="84" id="0BN-4G-C0X"/>
+                            <constraint firstItem="7rs-44-wHl" firstAttribute="bottom" secondItem="DdR-pK-MCm" secondAttribute="bottom" constant="48" id="fDw-4c-Kih"/>
+                            <constraint firstItem="Gg3-p4-XDd" firstAttribute="centerX" secondItem="7rs-44-wHl" secondAttribute="centerX" id="ff5-ps-09t"/>
+                            <constraint firstItem="DdR-pK-MCm" firstAttribute="centerX" secondItem="7rs-44-wHl" secondAttribute="centerX" id="oPA-HQ-RE6"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="7rs-44-wHl"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9uX-Un-71l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1567" y="88"/>
+            <point key="canvasLocation" x="1503" y="339"/>
         </scene>
     </scenes>
     <resources>

@@ -17,6 +17,13 @@ class DashboardHomeViewController: UIViewController {
     }
     
 
+    @IBAction func logoutButtonTapped(_ sender: Any) {
+        //set logged in flag to false
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(false,forKey: "isLoggedIn")
+        userDefaults.synchronize()
+        self.dismiss(animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 
