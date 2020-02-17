@@ -73,7 +73,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
     
     //Mark: Handle Conversion Data (Deferred Deep Link)
     func onConversionDataSuccess(_ data: [AnyHashable: Any]) {
-        print("\(data)")
+       // print("\(data)")
+        for (key,value) in data{
+            print("GCD key: \(key), value: \(value)")
+        }
+        
         if let status = data["af_status"] as? String{
             if(status == "Non-organic"){
                 if let sourceID = data["media_source"] , let campaign = data["campaign"]{
@@ -90,6 +94,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
                 }
             }
         }
+        
+        
+        
     }
     func onConversionDataFail(_ error: Error) {
         print("\(error)")

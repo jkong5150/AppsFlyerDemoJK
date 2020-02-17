@@ -1,5 +1,5 @@
 PODS:
-  - AppsFlyerFramework (4.9.0)
+  - AppsFlyerFramework (5.1.0)
 
 DEPENDENCIES:
   - AppsFlyerFramework
@@ -9,7 +9,7 @@ SPEC REPOS:
     - AppsFlyerFramework
 
 SPEC CHECKSUMS:
-  AppsFlyerFramework: f57e5d590ad3124d3e594a76032a181bc91ec6cd
+  AppsFlyerFramework: b5e6d0d1718c445eeb151769e97246c00ae4628d
 
 PODFILE CHECKSUM: b3881d589c2955e78c9bd5664c4a73cbf076e1a1
 
