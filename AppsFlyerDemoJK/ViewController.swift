@@ -13,11 +13,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        let isLoggedIn = UserDefaults.standard.bool(forKey: "isLoggedIn")
+        if isLoggedIn {
+            navigateToDashHome()
+        }
+    }
     //don't go to landscape.
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         get{
@@ -28,11 +35,11 @@ class ViewController: UIViewController {
 
     @IBAction func LogInTapped(_ sender: Any) {
         print("Login tapped")
-        navigateToDashHome()
+        validateLogin()
         
     }
     
-    private func navigateToDashHome(){
+    private func validateLogin(){
         //validateFields()
         
         guard let username = usernameTextField.text else {
@@ -48,20 +55,20 @@ class ViewController: UIViewController {
         let usernamedb = UserDefaults.standard.object(forKey: "username")
         let passworddb = UserDefaults.standard.object(forKey: "password")
         
-        let userDefaults = UserDefaults.standard
         if (username == usernamedb as? String && password == passworddb as? String) {
             //save the isLoggedIn flag to true
-            userDefaults.set(true, forKey: "isLoggedIn")
-            
-            let mainStoryboard = UIStoryboard(name:"Main",bundle:Bundle.main)
-            guard let dashHomeVC = mainStoryboard.instantiateViewController(withIdentifier: "DashboardHomeViewController") as? DashboardHomeViewController else {return }
-            present(dashHomeVC, animated: true, completion: nil)
+            navigateToDashHome()
         }
             
     }
     
-    private func validateFields(){
-        
+    private func navigateToDashHome(){
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(true, forKey: "isLoggedIn")
+        userDefaults.synchronize()
+        let mainStoryboard = UIStoryboard(name:"Main",bundle:Bundle.main)
+        guard let dashHomeVC = mainStoryboard.instantiateViewController(withIdentifier: "DashboardHomeViewController") as? DashboardHomeViewController else {return }
+        present(dashHomeVC, animated: true, completion: nil)
     }
 }
 

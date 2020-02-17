@@ -115,7 +115,6 @@
 		B25E1ED323F8A53B00B4AE6C = {
 			isa = PBXGroup;
 			children = (
-				B2867DDD23F9A2B20034882D /* DashboardHomeViewController.swift */,
 				B25E1EDE23F8A53B00B4AE6C /* AppsFlyerDemoJK */,
 				B25E1EF323F8A53D00B4AE6C /* AppsFlyerDemoJKTests */,
 				B25E1EFE23F8A53D00B4AE6C /* AppsFlyerDemoJKUITests */,
@@ -141,6 +140,7 @@
 				B2867DE323F9CB040034882D /* AppsFlyerDemoJK.entitlements */,
 				B25E1F0D23F8A8AF00B4AE6C /* images */,
 				B25E1EDF23F8A53B00B4AE6C /* AppDelegate.swift */,
+				B2867DDD23F9A2B20034882D /* DashboardHomeViewController.swift */,
 				B25E1EE123F8A53B00B4AE6C /* ViewController.swift */,
 				B25E1EE323F8A53B00B4AE6C /* Main.storyboard */,
 				B25E1EE623F8A53D00B4AE6C /* Assets.xcassets */,
