@@ -13,13 +13,12 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AppsFlyerDemoJK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="skyline.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="e43-Q4-WNg">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="skyline" translatesAutoresizingMaskIntoConstraints="NO" id="e43-Q4-WNg">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -159,6 +158,7 @@
                         <outlet property="usernameTextField" destination="cVG-un-YZ0" id="UpL-2R-Bu7"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-403" y="-89"/>
         </scene>
@@ -177,16 +177,23 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l94-Ir-yJd">
-                                <rect key="frame" x="311" y="41" width="48" height="30"/>
+                                <rect key="frame" x="311" y="44" width="48" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Logout"/>
                                 <connections>
                                     <action selector="logoutButtonTapped:" destination="NGs-vo-gd2" eventType="touchUpInside" id="vxf-NC-IQb"/>
+                                    <action selector="logoutTapped:" destination="gNy-Ga-ENZ" eventType="touchUpInside" id="g8X-t3-3ul"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bm2-u5-tCq">
+                                <rect key="frame" x="170" y="433" width="75" height="30"/>
+                                <state key="normal" title="Dashboard"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Bm2-u5-tCq" firstAttribute="centerY" secondItem="0Vl-cw-sCL" secondAttribute="centerY" id="1Pf-Fr-Ziz"/>
+                            <constraint firstItem="Bm2-u5-tCq" firstAttribute="centerX" secondItem="0Vl-cw-sCL" secondAttribute="centerX" id="Zz9-48-J94"/>
                             <constraint firstItem="vCb-ms-91I" firstAttribute="top" secondItem="0Vl-cw-sCL" secondAttribute="top" constant="30" id="gA6-Et-2HH"/>
                             <constraint firstItem="vCb-ms-91I" firstAttribute="centerX" secondItem="0Vl-cw-sCL" secondAttribute="centerX" id="nAI-Wm-ZEu"/>
                         </constraints>
@@ -239,6 +246,6 @@
     </scenes>
     <resources>
         <image name="Dashboard_home" width="750" height="1204"/>
-        <image name="skyline.jpg" width="1080" height="1920"/>
+        <image name="skyline" width="1080" height="1920"/>
     </resources>
 </document>

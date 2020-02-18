@@ -23,6 +23,12 @@ class DashboardHomeViewController: UIViewController {
         userDefaults.set(false,forKey: "isLoggedIn")
         userDefaults.synchronize()
         self.dismiss(animated: true, completion: nil)
+        clearAD()
+    }
+    
+    private func clearAD(){
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.navigateTo = nil
     }
     /*
     // MARK: - Navigation

@@ -28,8 +28,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         //get the navigate to info.
+        
         setNavigateTo()
     }
+    
+    
     
     private func setNavigateTo(){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -39,10 +42,10 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let isLoggedIn = UserDefaults.standard.bool(forKey: "isLoggedIn")
-        if isLoggedIn {
-            navigateToPage()
-        }
+//        let isLoggedIn = UserDefaults.standard.bool(forKey: "isLoggedIn")
+//        if isLoggedIn {
+//            navigateToPage()
+//        }
     }
     
     //don't go to landscape.
