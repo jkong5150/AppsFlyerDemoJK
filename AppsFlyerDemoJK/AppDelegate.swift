@@ -14,6 +14,7 @@ import AppsFlyerLib
 class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
 
     var window: UIWindow?
+     var navigateTo: String?
     
     @objc func sendLaunch(app:Any) {
         AppsFlyerTracker.shared().trackAppLaunch()
@@ -72,7 +73,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
     
     //Mark: Handle Conversion Data (Deferred Deep Link)
     func onConversionDataSuccess(_ data: [AnyHashable: Any]) {
-        print("\(data)")
+       // print("\(data)")
+        for (key,value) in data{
+            print("GCD key: \(key), value: \(value)")
+        }
+        
         if let status = data["af_status"] as? String{
             if(status == "Non-organic"){
                 if let sourceID = data["media_source"] , let campaign = data["campaign"]{
@@ -84,11 +89,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
             if let is_first_launch = data["is_first_launch"] , let launch_code = is_first_launch as? Int {
                 if(launch_code == 1){
                     print("First Launch")
+                    //navigate using af_sub1
+                    if let navigateTo = data["af_sub1"] as? String {
+                        setNavigateTo(navigateTo: navigateTo)
+                    }
                 } else {
                     print("Not First Launch")
                 }
             }
         }
+        
+//        if let navigateTo = data["af_sub1"] as? String {
+//            setNavigateTo(navigateTo: navigateTo)
+//        }
+        
     }
     func onConversionDataFail(_ error: Error) {
         print("\(error)")
@@ -100,7 +114,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
         if let link = data["link"]{
             print("link:  \(link)")
         }
+        for (key,value) in data{
+            print("key: \(key), value: \(value)")
+        }
+        
+        //this seems to work if the user has to login.
+        if let navigateTo = data["af_sub1"] as? String {
+            setNavigateTo(navigateTo: navigateTo)
+        }
+        
+        //If the app is already opena dn user is already logged in - how do we know??? Force change rootview controller? Seems sketch
+        let mainStoryboard = UIStoryboard(name:"Main",bundle:Bundle.main)
+        let navigateVC : UIViewController
+        switch (navigateTo){
+        case "1099":
+            navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: "Dashboard1099ViewController") as? Dashboard1099ViewController)!
+        default:
+            navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: "DashboardHomeViewController") as? DashboardHomeViewController)!
+        }
+        print(navigateVC)
+        //check logged in.
+        if UserDefaults.standard.bool(forKey:"isLoggedIn")  {
+//            let rootController = window?.rootViewController
+//            let currentContoller
+            window?.rootViewController?.dismiss(animated: false, completion: nil)
+            window?.rootViewController?.present(navigateVC, animated: true, completion: nil)
+            //window?.rootViewControlle?
+            window?.makeKeyAndVisible()
+        }
+
     }
+    
     func onAppOpenAttributionFailure(_ error: Error) {
         print("\(error)")
     }
@@ -140,6 +184,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        let ud = UserDefaults.standard
+        ud.set(false,forKey: "isLoggedIn")
     }
 
     private func addUserLogins(){
@@ -150,6 +196,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
         defaults.set(username,forKey: "username")
         defaults.set(password,forKey: "password")
         
+    }
+    
+    func getNavigateTo() -> String? {
+        return navigateTo
+    }
+    
+    func setNavigateTo(navigateTo: String?) {
+        self.navigateTo = navigateTo
     }
 
 }

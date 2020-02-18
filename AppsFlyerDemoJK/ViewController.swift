@@ -13,18 +13,41 @@ class ViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    //pass deeplink information here.
+    private var navigateTo: String?
     
+//    private func setNavigateTo(navigateTo: String) {
+//        self.navigateTo = navigateTo
+//    }
+//
+//    private func getNavigateTo() -> String? {
+//        return navigateTo
+//    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        //get the navigate to info.
+        
+        setNavigateTo()
+    }
+    
+    
+    
+    private func setNavigateTo(){
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let navTo = appDelegate.navigateTo
+        navigateTo = navTo
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let isLoggedIn = UserDefaults.standard.bool(forKey: "isLoggedIn")
-        if isLoggedIn {
-            navigateToDashHome()
-        }
+//        let isLoggedIn = UserDefaults.standard.bool(forKey: "isLoggedIn")
+//        if isLoggedIn {
+//            navigateToPage()
+//        }
     }
+    
     //don't go to landscape.
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         get{
@@ -57,18 +80,29 @@ class ViewController: UIViewController {
         
         if (username == usernamedb as? String && password == passworddb as? String) {
             //save the isLoggedIn flag to true
-            navigateToDashHome()
+            let userDefaults = UserDefaults.standard
+            userDefaults.set(true, forKey: "isLoggedIn")
+            userDefaults.synchronize()
+            navigateToPage()
         }
             
     }
     
-    private func navigateToDashHome(){
-        let userDefaults = UserDefaults.standard
-        userDefaults.set(true, forKey: "isLoggedIn")
-        userDefaults.synchronize()
+    private func navigateToPage(){
+        
+        //set navigate to because the view could already be active.
+        setNavigateTo()
+
         let mainStoryboard = UIStoryboard(name:"Main",bundle:Bundle.main)
-        guard let dashHomeVC = mainStoryboard.instantiateViewController(withIdentifier: "DashboardHomeViewController") as? DashboardHomeViewController else {return }
-        present(dashHomeVC, animated: true, completion: nil)
+        let navigateVC : UIViewController
+        switch (navigateTo){
+        case "1099":
+            navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: "Dashboard1099ViewController") as? Dashboard1099ViewController)!
+        default:
+            navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: "DashboardHomeViewController") as? DashboardHomeViewController)!
+        }
+        
+        present(navigateVC, animated: true, completion: nil)
     }
 }
 

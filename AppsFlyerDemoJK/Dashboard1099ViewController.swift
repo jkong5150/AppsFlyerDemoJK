@@ -1,14 +1,14 @@
 //
-//  DashboardHomeViewController.swift
+//  Dashboard1099ViewController.swift
 //  AppsFlyerDemoJK
 //
-//  Created by Jeff Kongthong on 2/16/20.
+//  Created by Jeff Kongthong on 2/17/20.
 //  Copyright © 2020 AppsFlyer. All rights reserved.
 //
 
 import UIKit
 
-class DashboardHomeViewController: UIViewController {
+class Dashboard1099ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,8 +16,7 @@ class DashboardHomeViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-    @IBAction func logoutButtonTapped(_ sender: Any) {
+    @IBAction func logoutTapped(_ sender: Any) {
         //set logged in flag to false
         let userDefaults = UserDefaults.standard
         userDefaults.set(false,forKey: "isLoggedIn")
