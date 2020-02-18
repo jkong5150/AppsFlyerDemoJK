@@ -185,15 +185,9 @@
                                     <action selector="logoutTapped:" destination="gNy-Ga-ENZ" eventType="touchUpInside" id="g8X-t3-3ul"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bm2-u5-tCq">
-                                <rect key="frame" x="170" y="433" width="75" height="30"/>
-                                <state key="normal" title="Dashboard"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Bm2-u5-tCq" firstAttribute="centerY" secondItem="0Vl-cw-sCL" secondAttribute="centerY" id="1Pf-Fr-Ziz"/>
-                            <constraint firstItem="Bm2-u5-tCq" firstAttribute="centerX" secondItem="0Vl-cw-sCL" secondAttribute="centerX" id="Zz9-48-J94"/>
                             <constraint firstItem="vCb-ms-91I" firstAttribute="top" secondItem="0Vl-cw-sCL" secondAttribute="top" constant="30" id="gA6-Et-2HH"/>
                             <constraint firstItem="vCb-ms-91I" firstAttribute="centerX" secondItem="0Vl-cw-sCL" secondAttribute="centerX" id="nAI-Wm-ZEu"/>
                         </constraints>
@@ -203,6 +197,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QXq-P6-Q6A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="503" y="-354"/>
+        </scene>
+        <!--Promotion View Controller-->
+        <scene sceneID="AvZ-wJ-AKo">
+            <objects>
+                <viewController storyboardIdentifier="PromotionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TC9-NW-bUK" customClass="PromotionViewController" customModule="AppsFlyerDemoJK" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VKg-VE-NCP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONN-ty-LqN">
+                                <rect key="frame" x="332" y="63" width="48" height="30"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutButtonTapped:" destination="NGs-vo-gd2" eventType="touchUpInside" id="x3l-wz-aLi"/>
+                                    <action selector="logoutTapped:" destination="TC9-NW-bUK" eventType="touchUpInside" id="2x2-Zt-85x"/>
+                                    <action selector="logoutTapped:" destination="gNy-Ga-ENZ" eventType="touchUpInside" id="MzE-0z-OpG"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Promotion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X7J-V7-0eI">
+                                <rect key="frame" x="167.66666666666666" y="74" width="79" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="X7J-V7-0eI" firstAttribute="top" secondItem="jXp-UP-TRd" secondAttribute="top" constant="30" id="DS4-84-yup"/>
+                            <constraint firstItem="X7J-V7-0eI" firstAttribute="centerX" secondItem="jXp-UP-TRd" secondAttribute="centerX" id="kyL-BZ-Djv"/>
+                            <constraint firstItem="jXp-UP-TRd" firstAttribute="trailing" secondItem="ONN-ty-LqN" secondAttribute="trailing" constant="34" id="srH-Sz-c76"/>
+                            <constraint firstItem="ONN-ty-LqN" firstAttribute="top" secondItem="jXp-UP-TRd" secondAttribute="top" constant="19" id="tkA-hU-DPM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jXp-UP-TRd"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hpc-IK-yAf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1370" y="-354"/>
         </scene>
         <!--Dashboard Home View Controller-->
         <scene sceneID="MsO-he-Vko">
