@@ -33,6 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
         /* Set isDebug to true to see AppsFlyer debug logs */
         AppsFlyerTracker.shared().isDebug = true
         
+        AppsFlyerTracker.shared().resolveDeepLinkURLs?.append("click.sflink.afsdktests.com")
+        
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(sendLaunch),
                                                // For Swift version < 4.2 replace name argument with the commented out code
