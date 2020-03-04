@@ -33,18 +33,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
         /* Set isDebug to true to see AppsFlyer debug logs */
         AppsFlyerTracker.shared().isDebug = true
         
+        AppsFlyerTracker.shared().resolveDeepLinkURLs = ["click.sflink.afsdktests.com"]
+        
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(sendLaunch),
                                                // For Swift version < 4.2 replace name argument with the commented out code
             name: UIApplication.didBecomeActiveNotification, //.UIApplicationDidBecomeActive for Swift < 4.2
             object: nil)
         return true
-    }
+    }   
     
     // Deeplinking
     
     // Open URI-scheme for iOS 9 and above
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        print("Here is the URL: \(url)")
         AppsFlyerTracker.shared().handleOpen(url, options: options)
         return true
     }
