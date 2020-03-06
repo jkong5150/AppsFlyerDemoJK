@@ -16,7 +16,6 @@
 		B25E1EEA23F8A53D00B4AE6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B25E1EE823F8A53D00B4AE6C /* LaunchScreen.storyboard */; };
 		B25E1EF523F8A53D00B4AE6C /* AppsFlyerDemoJKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25E1EF423F8A53D00B4AE6C /* AppsFlyerDemoJKTests.swift */; };
 		B25E1F0023F8A53D00B4AE6C /* AppsFlyerDemoJKUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25E1EFF23F8A53D00B4AE6C /* AppsFlyerDemoJKUITests.swift */; };
-		B25E1F0F23F8A8D400B4AE6C /* skyline.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B25E1F0E23F8A8D400B4AE6C /* skyline.jpg */; };
 		B2867DDE23F9A2B20034882D /* DashboardHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2867DDD23F9A2B20034882D /* DashboardHomeViewController.swift */; };
 		B2867DE023F9B7D20034882D /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2867DDF23F9B7D20034882D /* AdSupport.framework */; };
 		B2867DE223F9B7DE0034882D /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2867DE123F9B7DE0034882D /* iAd.framework */; };
@@ -308,7 +307,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B25E1EEA23F8A53D00B4AE6C /* LaunchScreen.storyboard in Resources */,
-				B25E1F0F23F8A8D400B4AE6C /* skyline.jpg in Resources */,
 				B25E1EE723F8A53D00B4AE6C /* Assets.xcassets in Resources */,
 				B25E1EE523F8A53B00B4AE6C /* Main.storyboard in Resources */,
 			);
