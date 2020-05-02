@@ -9,7 +9,7 @@
 import UIKit
 import AppsFlyerLib
 
-class ViewController: UIViewController {
+class FinanceLoginViewController: UIViewController {
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -58,7 +58,7 @@ class ViewController: UIViewController {
     
 
     @IBAction func LogInTapped(_ sender: Any) {
-        print("Login tapped")
+        print(" tapped")
         validateLogin()
         
     }
@@ -104,6 +104,9 @@ class ViewController: UIViewController {
         default:
             navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: "DashboardHomeViewController") as? DashboardHomeViewController)!
         }
+        
+        //max screen
+        navigateVC.modalPresentationStyle = .fullScreen
         
         AppsFlyerTracker.shared().trackEvent(AFEventLogin, withValues: nil)
         present(navigateVC, animated: true, completion: nil)
