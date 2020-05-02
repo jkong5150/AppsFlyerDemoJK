@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AppsFlyerLib
 
 class ViewController: UIViewController {
 
@@ -104,6 +105,7 @@ class ViewController: UIViewController {
             navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: "DashboardHomeViewController") as? DashboardHomeViewController)!
         }
         
+        AppsFlyerTracker.shared().trackEvent(AFEventLogin, withValues: nil)
         present(navigateVC, animated: true, completion: nil)
     }
 }
