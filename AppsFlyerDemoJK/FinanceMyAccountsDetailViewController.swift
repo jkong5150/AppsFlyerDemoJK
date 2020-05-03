@@ -12,6 +12,7 @@ import UIKit
 class FinanceMyAccountsDetailViewController : UIViewController {
     
     @IBOutlet weak var balanceLabel: UILabel!
+    @IBOutlet weak var transacationList: UITableView!
     var acct : AccountModel?
     
     override func viewDidLoad() {

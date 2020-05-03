@@ -21,7 +21,7 @@ class Dashboard1099ViewController: UIViewController {
         let userDefaults = UserDefaults.standard
         userDefaults.set(false,forKey: "isLoggedIn")
         userDefaults.synchronize()
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: false, completion: nil)
         clearAD()
     }
     

@@ -33,8 +33,6 @@ class FinanceLoginViewController: UIViewController {
         setNavigateTo()
     }
     
-    
-    
     private func setNavigateTo(){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let navTo = appDelegate.navigateTo
@@ -107,7 +105,7 @@ class FinanceLoginViewController: UIViewController {
         navigateVC.modalPresentationStyle = .fullScreen
         
         AppsFlyerTracker.shared().trackEvent(AFEventLogin, withValues: nil)
-        present(navigateVC, animated: true, completion: nil)
+        present(navigateVC, animated: false, completion: nil)
     }
 }
 
