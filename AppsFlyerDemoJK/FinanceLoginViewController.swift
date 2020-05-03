@@ -57,10 +57,8 @@ class FinanceLoginViewController: UIViewController {
     }
     
 
-    @IBAction func LogInTapped(_ sender: Any) {
-        print(" tapped")
+    @IBAction func loginButtonTapped(_ sender: Any) {
         validateLogin()
-        
     }
     
     private func validateLogin(){

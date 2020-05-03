@@ -22,6 +22,7 @@
 		B2C4C194245E054F00403FFA /* VerticalLoaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C4C193245E054F00403FFA /* VerticalLoaderViewController.swift */; };
 		B2C4C196245E100A00403FFA /* Retail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2C4C195245E100A00403FFA /* Retail.storyboard */; };
 		B2C4C198245E22F500403FFA /* RetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C4C197245E22F500403FFA /* RetailViewController.swift */; };
+		B2C4C19A245E385E00403FFA /* Verticals.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C4C199245E385E00403FFA /* Verticals.swift */; };
 		B2D55A6823FAF0B800283B67 /* Dashboard1099ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D55A6723FAF0B800283B67 /* Dashboard1099ViewController.swift */; };
 		B2D55A6A23FB6C3100283B67 /* PromotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D55A6923FB6C3100283B67 /* PromotionViewController.swift */; };
 		FC68193075147C1A6D819198 /* Pods_AppsFlyerDemoJKTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B195C438E9F1DB7D7045C354 /* Pods_AppsFlyerDemoJKTests.framework */; };
@@ -71,6 +72,7 @@
 		B2C4C193245E054F00403FFA /* VerticalLoaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalLoaderViewController.swift; sourceTree = "<group>"; };
 		B2C4C195245E100A00403FFA /* Retail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Retail.storyboard; sourceTree = "<group>"; };
 		B2C4C197245E22F500403FFA /* RetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetailViewController.swift; sourceTree = "<group>"; };
+		B2C4C199245E385E00403FFA /* Verticals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Verticals.swift; sourceTree = "<group>"; };
 		B2D55A6723FAF0B800283B67 /* Dashboard1099ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard1099ViewController.swift; sourceTree = "<group>"; };
 		B2D55A6923FB6C3100283B67 /* PromotionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionViewController.swift; sourceTree = "<group>"; };
 		BAC36B3603C7EA26E821723F /* Pods-AppsFlyerDemoJKUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppsFlyerDemoJKUITests.release.xcconfig"; path = "Target Support Files/Pods-AppsFlyerDemoJKUITests/Pods-AppsFlyerDemoJKUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -153,11 +155,12 @@
 				B2867DDD23F9A2B20034882D /* DashboardHomeViewController.swift */,
 				B2D55A6923FB6C3100283B67 /* PromotionViewController.swift */,
 				B25E1EE123F8A53B00B4AE6C /* FinanceLoginViewController.swift */,
+				B2C4C199245E385E00403FFA /* Verticals.swift */,
 				B25E1EE323F8A53B00B4AE6C /* Main.storyboard */,
 				B2C4C195245E100A00403FFA /* Retail.storyboard */,
+				B25E1EE823F8A53D00B4AE6C /* LaunchScreen.storyboard */,
 				B2C4C193245E054F00403FFA /* VerticalLoaderViewController.swift */,
 				B25E1EE623F8A53D00B4AE6C /* Assets.xcassets */,
-				B25E1EE823F8A53D00B4AE6C /* LaunchScreen.storyboard */,
 				B25E1EEB23F8A53D00B4AE6C /* Info.plist */,
 				B2D55A6723FAF0B800283B67 /* Dashboard1099ViewController.swift */,
 			);
@@ -419,6 +422,7 @@
 				B25E1EE023F8A53B00B4AE6C /* AppDelegate.swift in Sources */,
 				B2D55A6823FAF0B800283B67 /* Dashboard1099ViewController.swift in Sources */,
 				B2867DDE23F9A2B20034882D /* DashboardHomeViewController.swift in Sources */,
+				B2C4C19A245E385E00403FFA /* Verticals.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

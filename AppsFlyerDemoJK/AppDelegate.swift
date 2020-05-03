@@ -24,8 +24,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        /*** CHANGE THE VERTICAL!!! (Retail, Finance, etc.) *****/
+        let vertical : String = Verticals.finance.rawValue
+        /*** SA CHANGE THIS!!!!   *****/
+        
         //add dummy user logins
-        addUserLogins()
+        configure(vertical: vertical)
+        //define the vertical
+        
         
         AppsFlyerTracker.shared().appsFlyerDevKey = "tRiUHG43JTfCZrp6LnXrhD"
         AppsFlyerTracker.shared().appleAppID = "211122514"
@@ -195,16 +201,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
         ud.set(false,forKey: "isLoggedIn")
     }
 
-    private func addUserLogins(){
+    private func configure(vertical: String){
         //SA AppsFlyer - add username and password to use.
         let username = "appsflyer"
         let password = "password"
         let defaults = UserDefaults.standard
         defaults.set(username,forKey: "username")
         defaults.set(password,forKey: "password")
+        defaults.set(vertical,forKey: "vertical")
         
     }
-    
+        
     func getNavigateTo() -> String? {
         return navigateTo
     }

@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+
 class VerticalLoaderViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,27 +17,35 @@ class VerticalLoaderViewController : UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(false)
-        naviagateToRetail()
-    }
-    @IBOutlet weak var usernameTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBAction func loginTapped(_ sender: Any) {
-        naviagateToRetail()
+        navigateToPage()
     }
     
-    private func navigateToVC(){
+// MARK: Vertical View controllers (Retail, Finance, etc.)
+    private func navigateToVC() -> UIViewController {
         let mainStoryboard = UIStoryboard(name:"Main",bundle:Bundle.main)
-        let navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: "DashboardHomeViewController") as? DashboardHomeViewController)!
-
-        present(navigateVC, animated: true, completion: nil)
+        let navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: "FinanceLoginViewController") as? FinanceLoginViewController)!
+        return navigateVC
     }
     
-    private func naviagateToRetail() {
+    private func naviagateToRetail() -> UIViewController {
         let mainStoryboard = UIStoryboard(name:"Retail",bundle:Bundle.main)
         let navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: "RetailViewController") as? RetailViewController)!
+        return navigateVC
+    }
+    
+    private func navigateToPage(){
+        
+        guard let vertical = UserDefaults.standard.object(forKey: "vertical") as? String  else { return  }
+        let navigateVC : UIViewController
+        switch (vertical){
+        case Verticals.retail.rawValue:
+            navigateVC =  naviagateToRetail()
+//        case Verticals.finance.rawValue:
+//            navigateVC =  (storyboard.instantiateViewController(withIdentifier: "PromotionViewController") as? PromotionViewController)!
+        default:
+            navigateVC =  navigateToVC()
+        }
         navigateVC.modalPresentationStyle = .fullScreen
         present(navigateVC, animated: true, completion: nil)
-        
-
     }
 }
