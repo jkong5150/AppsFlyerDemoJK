@@ -128,7 +128,48 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1233.3333333333335" y="-72.321428571428569"/>
+            <point key="canvasLocation" x="-1980" y="-80"/>
+        </scene>
+        <!--Finance My Account View Controller-->
+        <scene sceneID="dRJ-M7-WiT">
+            <objects>
+                <viewController storyboardIdentifier="FinanceMyAccountViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Nde-Gr-7wn" customClass="FinanceMyAccountViewController" customModule="AppsFlyerDemoJK" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Dbz-G2-Kur">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SeU-T9-7Ij">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="38w-Bb-CT9">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="38w-Bb-CT9" id="TPj-sY-JJZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="eEt-eJ-TI2" firstAttribute="trailing" secondItem="SeU-T9-7Ij" secondAttribute="trailing" id="5vB-k4-q0G"/>
+                            <constraint firstItem="SeU-T9-7Ij" firstAttribute="top" secondItem="eEt-eJ-TI2" secondAttribute="top" id="hLe-14-HK5"/>
+                            <constraint firstItem="eEt-eJ-TI2" firstAttribute="bottom" secondItem="SeU-T9-7Ij" secondAttribute="bottom" id="i7y-j4-dGZ"/>
+                            <constraint firstItem="SeU-T9-7Ij" firstAttribute="leading" secondItem="eEt-eJ-TI2" secondAttribute="leading" id="yrt-UW-ycS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="eEt-eJ-TI2"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="U8y-1X-u30"/>
+                    <connections>
+                        <outlet property="table" destination="SeU-T9-7Ij" id="0h4-8n-RxS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Iw6-NB-Wcn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="118.84057971014494" y="-90.401785714285708"/>
         </scene>
         <!--Dashboard1099 View Controller-->
         <scene sceneID="eyQ-2p-ghg">
@@ -164,7 +205,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QXq-P6-Q6A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="503" y="-354"/>
+            <point key="canvasLocation" x="1663.7681159420292" y="-450"/>
         </scene>
         <!--Promotion View Controller-->
         <scene sceneID="AvZ-wJ-AKo">
@@ -202,18 +243,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hpc-IK-yAf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1370" y="-354"/>
+            <point key="canvasLocation" x="2528.985507246377" y="-450"/>
         </scene>
         <!--Dashboard Home View Controller-->
         <scene sceneID="MsO-he-Vko">
             <objects>
                 <viewController storyboardIdentifier="DashboardHomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NGs-vo-gd2" customClass="DashboardHomeViewController" customModule="AppsFlyerDemoJK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3R6-Ep-3Yd">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main Dashboard" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gg3-p4-XDd">
-                                <rect key="frame" x="97.5" y="30" width="125" height="21"/>
+                                <rect key="frame" x="144.66666666666666" y="74" width="124.99999999999997" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -241,7 +282,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9uX-Un-71l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="502" y="351"/>
+            <point key="canvasLocation" x="1742.0289855072465" y="260.49107142857144"/>
         </scene>
         <!--Vertical Loader View Controller-->
         <scene sceneID="ANy-fI-RhA">
@@ -293,7 +334,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lXX-5c-2ap" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2055" y="434"/>
+            <point key="canvasLocation" x="-2801" y="426"/>
+        </scene>
+        <!--Finance Main View Controller-->
+        <scene sceneID="4xk-EB-pax">
+            <objects>
+                <navigationController storyboardIdentifier="FinanceMainViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8dC-m1-lQn" customClass="FinanceMainViewController" customModule="AppsFlyerDemoJK" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FM5-OV-epM">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Nde-Gr-7wn" kind="relationship" relationship="rootViewController" id="iQV-ZP-mQM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F30-E3-l8n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-791.304347826087" y="-90.401785714285708"/>
         </scene>
     </scenes>
     <resources>

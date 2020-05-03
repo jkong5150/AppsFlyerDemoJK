@@ -100,7 +100,7 @@ class FinanceLoginViewController: UIViewController {
         case "promo":
             navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: "PromotionViewController") as? PromotionViewController)!
         default:
-            navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: "DashboardHomeViewController") as? DashboardHomeViewController)!
+            navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: "FinanceMainViewController") as? FinanceMainViewController)!
         }
         
         //max screen
