@@ -165,6 +165,7 @@
                     <navigationItem key="navigationItem" id="U8y-1X-u30"/>
                     <connections>
                         <outlet property="table" destination="SeU-T9-7Ij" id="0h4-8n-RxS"/>
+                        <segue destination="cc9-LY-3rD" kind="show" identifier="ListToDetail" id="B9r-gw-c8z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iw6-NB-Wcn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -353,6 +354,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F30-E3-l8n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-791.304347826087" y="-90.401785714285708"/>
+        </scene>
+        <!--Finance My Accounts Detail View Controller-->
+        <scene sceneID="Ueg-hX-sEQ">
+            <objects>
+                <viewController storyboardIdentifier="FinanceMyAccountsDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cc9-LY-3rD" customClass="FinanceMyAccountsDetailViewController" customModule="AppsFlyerDemoJK" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="X86-5V-m6p">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="accountBalance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awX-VG-Enb">
+                                <rect key="frame" x="146" y="176" width="123" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="YvM-GC-oE1"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="aTc-jr-4PW"/>
+                    <connections>
+                        <outlet property="balanceLabel" destination="awX-VG-Enb" id="n6J-gR-yHK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y3h-rS-NyQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="942" y="-90"/>
         </scene>
     </scenes>
     <resources>

@@ -28,6 +28,11 @@
 		B2FC3561245E7CD50006C12A /* FinanceMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FC3560245E7CD50006C12A /* FinanceMainViewController.swift */; };
 		B2FC3563245E7FF40006C12A /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FC3562245E7FF40006C12A /* SwiftUIView.swift */; };
 		B2FC3565245E8A790006C12A /* FinanceMyAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FC3564245E8A790006C12A /* FinanceMyAccountViewController.swift */; };
+		B2FC356B245F0A450006C12A /* FinanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FC3569245F0A450006C12A /* FinanceTableViewCell.swift */; };
+		B2FC356C245F0A450006C12A /* FinanceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2FC356A245F0A450006C12A /* FinanceTableViewCell.xib */; };
+		B2FC356E245F17D60006C12A /* FinanceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FC356D245F17D60006C12A /* FinanceData.swift */; };
+		B2FC3570245F1D8F0006C12A /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FC356F245F1D8F0006C12A /* AccountModel.swift */; };
+		B2FC3572245F50E10006C12A /* FinanceMyAccountsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FC3571245F50E10006C12A /* FinanceMyAccountsDetailViewController.swift */; };
 		FC68193075147C1A6D819198 /* Pods_AppsFlyerDemoJKTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B195C438E9F1DB7D7045C354 /* Pods_AppsFlyerDemoJKTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +86,11 @@
 		B2FC3560245E7CD50006C12A /* FinanceMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceMainViewController.swift; sourceTree = "<group>"; };
 		B2FC3562245E7FF40006C12A /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		B2FC3564245E8A790006C12A /* FinanceMyAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceMyAccountViewController.swift; sourceTree = "<group>"; };
+		B2FC3569245F0A450006C12A /* FinanceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceTableViewCell.swift; sourceTree = "<group>"; };
+		B2FC356A245F0A450006C12A /* FinanceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FinanceTableViewCell.xib; sourceTree = "<group>"; };
+		B2FC356D245F17D60006C12A /* FinanceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceData.swift; sourceTree = "<group>"; };
+		B2FC356F245F1D8F0006C12A /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
+		B2FC3571245F50E10006C12A /* FinanceMyAccountsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceMyAccountsDetailViewController.swift; sourceTree = "<group>"; };
 		BAC36B3603C7EA26E821723F /* Pods-AppsFlyerDemoJKUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppsFlyerDemoJKUITests.release.xcconfig"; path = "Target Support Files/Pods-AppsFlyerDemoJKUITests/Pods-AppsFlyerDemoJKUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C227C2D8EAE951F9A411DC64 /* Pods-AppsFlyerDemoJKUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppsFlyerDemoJKUITests.debug.xcconfig"; path = "Target Support Files/Pods-AppsFlyerDemoJKUITests/Pods-AppsFlyerDemoJKUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DFA4B581BCE7E6CC13E418DF /* Pods_AppsFlyerDemoJKUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppsFlyerDemoJKUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,15 +167,14 @@
 				B2867DE323F9CB040034882D /* AppsFlyerDemoJK.entitlements */,
 				B25E1F0D23F8A8AF00B4AE6C /* images */,
 				B25E1EDF23F8A53B00B4AE6C /* AppDelegate.swift */,
-				B2C4C197245E22F500403FFA /* RetailViewController.swift */,
+				B2FC3568245F084A0006C12A /* Retail */,
 				B2867DDD23F9A2B20034882D /* DashboardHomeViewController.swift */,
 				B2D55A6923FB6C3100283B67 /* PromotionViewController.swift */,
-				B25E1EE123F8A53B00B4AE6C /* FinanceLoginViewController.swift */,
-				B2FC3562245E7FF40006C12A /* SwiftUIView.swift */,
-				B2FC3560245E7CD50006C12A /* FinanceMainViewController.swift */,
 				B2C4C199245E385E00403FFA /* Verticals.swift */,
+				B2FC3567245F08130006C12A /* Config */,
+				B2FC3566245F07F20006C12A /* FInance */,
+				B2FC3562245E7FF40006C12A /* SwiftUIView.swift */,
 				B25E1EE323F8A53B00B4AE6C /* Main.storyboard */,
-				B2FC3564245E8A790006C12A /* FinanceMyAccountViewController.swift */,
 				B2C4C195245E100A00403FFA /* Retail.storyboard */,
 				B25E1EE823F8A53D00B4AE6C /* LaunchScreen.storyboard */,
 				B2C4C193245E054F00403FFA /* VerticalLoaderViewController.swift */,
@@ -200,6 +209,36 @@
 				B25E1F0E23F8A8D400B4AE6C /* skyline.jpg */,
 			);
 			path = images;
+			sourceTree = "<group>";
+		};
+		B2FC3566245F07F20006C12A /* FInance */ = {
+			isa = PBXGroup;
+			children = (
+				B25E1EE123F8A53B00B4AE6C /* FinanceLoginViewController.swift */,
+				B2FC356F245F1D8F0006C12A /* AccountModel.swift */,
+				B2FC3560245E7CD50006C12A /* FinanceMainViewController.swift */,
+				B2FC3564245E8A790006C12A /* FinanceMyAccountViewController.swift */,
+				B2FC3569245F0A450006C12A /* FinanceTableViewCell.swift */,
+				B2FC356A245F0A450006C12A /* FinanceTableViewCell.xib */,
+				B2FC3571245F50E10006C12A /* FinanceMyAccountsDetailViewController.swift */,
+				B2FC356D245F17D60006C12A /* FinanceData.swift */,
+			);
+			name = FInance;
+			sourceTree = "<group>";
+		};
+		B2FC3567245F08130006C12A /* Config */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		B2FC3568245F084A0006C12A /* Retail */ = {
+			isa = PBXGroup;
+			children = (
+				B2C4C197245E22F500403FFA /* RetailViewController.swift */,
+			);
+			name = Retail;
 			sourceTree = "<group>";
 		};
 		E7D30635CA2766E917A7E0F3 /* Pods */ = {
@@ -327,6 +366,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2FC356C245F0A450006C12A /* FinanceTableViewCell.xib in Resources */,
 				B2C4C196245E100A00403FFA /* Retail.storyboard in Resources */,
 				B25E1EEA23F8A53D00B4AE6C /* LaunchScreen.storyboard in Resources */,
 				B25E1EE723F8A53D00B4AE6C /* Assets.xcassets in Resources */,
@@ -427,10 +467,14 @@
 				B2C4C194245E054F00403FFA /* VerticalLoaderViewController.swift in Sources */,
 				B25E1EE223F8A53B00B4AE6C /* FinanceLoginViewController.swift in Sources */,
 				B2C4C198245E22F500403FFA /* RetailViewController.swift in Sources */,
+				B2FC3572245F50E10006C12A /* FinanceMyAccountsDetailViewController.swift in Sources */,
+				B2FC356E245F17D60006C12A /* FinanceData.swift in Sources */,
 				B2D55A6A23FB6C3100283B67 /* PromotionViewController.swift in Sources */,
 				B2FC3563245E7FF40006C12A /* SwiftUIView.swift in Sources */,
+				B2FC356B245F0A450006C12A /* FinanceTableViewCell.swift in Sources */,
 				B2FC3565245E8A790006C12A /* FinanceMyAccountViewController.swift in Sources */,
 				B25E1EE023F8A53B00B4AE6C /* AppDelegate.swift in Sources */,
+				B2FC3570245F1D8F0006C12A /* AccountModel.swift in Sources */,
 				B2D55A6823FAF0B800283B67 /* Dashboard1099ViewController.swift in Sources */,
 				B2867DDE23F9A2B20034882D /* DashboardHomeViewController.swift in Sources */,
 				B2FC3561245E7CD50006C12A /* FinanceMainViewController.swift in Sources */,
