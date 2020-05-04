@@ -225,8 +225,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONN-ty-LqN">
-                                <rect key="frame" x="160.66666666666666" y="812" width="93" height="30"/>
-                                <state key="normal" title="Back to Login"/>
+                                <rect key="frame" x="188" y="812" width="38" height="30"/>
+                                <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="logoutButtonTapped:" destination="NGs-vo-gd2" eventType="touchUpInside" id="x3l-wz-aLi"/>
                                     <action selector="logoutTapped:" destination="TC9-NW-bUK" eventType="touchUpInside" id="2x2-Zt-85x"/>

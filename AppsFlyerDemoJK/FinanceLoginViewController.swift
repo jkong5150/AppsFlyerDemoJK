@@ -60,6 +60,7 @@ class FinanceLoginViewController: UIViewController {
         //force the navigateTo
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = (storyboard.instantiateViewController(withIdentifier: DeepLink2ViewController.identifier ) as? DeepLink2ViewController)!
+        vc.modalPresentationStyle = .fullScreen
         present(vc,animated: true,completion: nil)
     }
     

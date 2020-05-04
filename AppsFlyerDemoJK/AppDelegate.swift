@@ -46,6 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
                                                // For Swift version < 4.2 replace name argument with the commented out code
             name: UIApplication.didBecomeActiveNotification, //.UIApplicationDidBecomeActive for Swift < 4.2
             object: nil)
+        setRootVC()
         return true
     }   
     
@@ -107,13 +108,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
                 }
             }
         }
-        updateRootVC()
-        
-//        if let navigateTo = data["af_sub1"] as? String {
-//            setNavigateTo(navigateTo: navigateTo)
-//        }
-        
     }
+    
     func onConversionDataFail(_ error: Error) {
         print("\(error)")
     }
@@ -131,20 +127,55 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
         //this seems to work if the user has to login.
         if let navigateTo = data["af_sub1"] as? String {
             setNavigateTo(navigateTo: navigateTo)
+            //push the modal
+            pushDeepLinkVC()
         }
-        //updateRootVC()
+        
     }
     
-    private func updateRootVC(){
-        //If the app is already opena dn user is already logged in - how do we know??? Force change rootview controller? Seems sketch
+    private func pushDeepLinkVC(){
         let mainStoryboard = UIStoryboard(name:"Main",bundle:Bundle.main)
         let navigateVC : UIViewController
         switch (navigateTo){
             case DeepLinkConfig.DEEPLINK1:
+                //PUSH the screen on not set root.
                 navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: DeepLink1ViewController.identifier) as? DeepLink1ViewController)!
-                
+
             case DeepLinkConfig.DEEPLINK2:
                 navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: DeepLink2ViewController.identifier) as? DeepLink2ViewController)!
+
+            default:
+                //navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: VerticalLoaderViewController.identifier) as? VerticalLoaderViewController)!
+                navigateVC = navigateToVertical()
+        }
+       // window?.rootViewController?.modalPresentationStyle = .fullScreen
+        
+        window?.rootViewController?.present(navigateVC, animated: true, completion: nil)
+    }
+    
+//    private func getTopVC()->UIViewController {
+//        let keyWindow = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+//        var vc: UIViewController
+//        if var topController = keyWindow?.rootViewController {
+//            while let presentedViewController = topController.presentedViewController {
+//                topController = presentedViewController
+//            }
+//            vc = topController
+//        }
+//        return vc
+//    }
+    
+    private func setRootVC(){
+        //If the app is already opena dn user is already logged in - how do we know??? Force change rootview controller? Seems sketch
+       // let mainStoryboard = UIStoryboard(name:"Main",bundle:Bundle.main)
+        let navigateVC : UIViewController
+        switch (navigateTo){
+//            case DeepLinkConfig.DEEPLINK1:
+//                //PUSH the screen on not set root.
+//                navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: DeepLink1ViewController.identifier) as? DeepLink1ViewController)!
+//
+//            case DeepLinkConfig.DEEPLINK2:
+//                navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: DeepLink2ViewController.identifier) as? DeepLink2ViewController)!
 
             default:
                 //navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: VerticalLoaderViewController.identifier) as? VerticalLoaderViewController)!
