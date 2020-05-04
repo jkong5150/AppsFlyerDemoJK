@@ -24,8 +24,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        /*** CHANGE THE VERTICAL!!! (Retail, Finance, etc.) *****/
+        let vertical : String = Verticals.finance.rawValue
+        /*** SA CHANGE THIS!!!!   *****/
+        
         //add dummy user logins
-        addUserLogins()
+        configure(vertical: vertical)
+        //define the vertical
+        
         
         AppsFlyerTracker.shared().appsFlyerDevKey = "tRiUHG43JTfCZrp6LnXrhD"
         AppsFlyerTracker.shared().appleAppID = "211122514"
@@ -40,6 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
                                                // For Swift version < 4.2 replace name argument with the commented out code
             name: UIApplication.didBecomeActiveNotification, //.UIApplicationDidBecomeActive for Swift < 4.2
             object: nil)
+        setRootVC()
         return true
     }   
     
@@ -101,12 +108,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
                 }
             }
         }
-        
-//        if let navigateTo = data["af_sub1"] as? String {
-//            setNavigateTo(navigateTo: navigateTo)
-//        }
-        
     }
+    
     func onConversionDataFail(_ error: Error) {
         print("\(error)")
     }
@@ -124,34 +127,102 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
         //this seems to work if the user has to login.
         if let navigateTo = data["af_sub1"] as? String {
             setNavigateTo(navigateTo: navigateTo)
+            //push the modal
+            pushDeepLinkVC()
         }
         
-        //If the app is already opena dn user is already logged in - how do we know??? Force change rootview controller? Seems sketch
+    }
+    
+    private func pushDeepLinkVC(){
         let mainStoryboard = UIStoryboard(name:"Main",bundle:Bundle.main)
         let navigateVC : UIViewController
         switch (navigateTo){
-        case "1099":
-            navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: "Dashboard1099ViewController") as? Dashboard1099ViewController)!
-            
-        case "promo":
-            navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: "PromotionViewController") as? PromotionViewController)!
+            case DeepLinkConfig.DEEPLINK1:
+                //PUSH the screen on not set root.
+                navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: DeepLink1ViewController.identifier) as? DeepLink1ViewController)!
 
-        default:
-            navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: "DashboardHomeViewController") as? DashboardHomeViewController)!
-        }
-        print(navigateVC)
-        //check logged in.
-        if UserDefaults.standard.bool(forKey:"isLoggedIn")  {
-//            let rootController = window?.rootViewController
-//            let currentContoller
-            window?.rootViewController?.dismiss(animated: false, completion: nil)
-            window?.rootViewController?.present(navigateVC, animated: true, completion: nil)
-            //window?.rootViewControlle?
-            window?.makeKeyAndVisible()
-        }
+            case DeepLinkConfig.DEEPLINK2:
+                navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: DeepLink2ViewController.identifier) as? DeepLink2ViewController)!
 
+            default:
+                //navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: VerticalLoaderViewController.identifier) as? VerticalLoaderViewController)!
+                navigateVC = navigateToVertical()
+        }
+       // window?.rootViewController?.modalPresentationStyle = .fullScreen
+        
+        window?.rootViewController?.present(navigateVC, animated: true, completion: nil)
     }
     
+//    private func getTopVC()->UIViewController {
+//        let keyWindow = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+//        var vc: UIViewController
+//        if var topController = keyWindow?.rootViewController {
+//            while let presentedViewController = topController.presentedViewController {
+//                topController = presentedViewController
+//            }
+//            vc = topController
+//        }
+//        return vc
+//    }
+    
+    private func setRootVC(){
+        //If the app is already opena dn user is already logged in - how do we know??? Force change rootview controller? Seems sketch
+       // let mainStoryboard = UIStoryboard(name:"Main",bundle:Bundle.main)
+        let navigateVC : UIViewController
+        switch (navigateTo){
+//            case DeepLinkConfig.DEEPLINK1:
+//                //PUSH the screen on not set root.
+//                navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: DeepLink1ViewController.identifier) as? DeepLink1ViewController)!
+//
+//            case DeepLinkConfig.DEEPLINK2:
+//                navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: DeepLink2ViewController.identifier) as? DeepLink2ViewController)!
+
+            default:
+                //navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: VerticalLoaderViewController.identifier) as? VerticalLoaderViewController)!
+                navigateVC = navigateToVertical()
+        }
+        //check logged in.
+//        if UserDefaults.standard.bool(forKey:"isLoggedIn")  {
+//            let rootController = window?.rootViewController
+//            let currentContoller
+        //window?.rootViewController?.dismiss(animated: false, completion: nil)
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController?.modalPresentationStyle = .fullScreen
+        window?.rootViewController = navigateVC
+        //window?.rootViewController?.present(navigateVC, animated: true, completion: nil)
+        window?.makeKeyAndVisible()
+//        }
+    }
+    
+    private func navigateToVertical() -> UIViewController{
+        let vc: UIViewController
+        let vertical = UserDefaults.standard.object(forKey: "vertical") as? String
+        switch (vertical){
+        case Verticals.retail.rawValue:
+            vc =  naviagateToRetail()
+        case Verticals.finance.rawValue:
+            vc =  navigateToFinance()
+//        case Verticals.finance.rawValue:
+//            navigateVC =  (storyboard.instantiateViewController(withIdentifier: "PromotionViewController") as? PromotionViewController)!
+        default:
+            vc =  navigateToFinance()
+        }
+        return vc
+    }
+
+    // MARK: Vertical View controllers (Retail, Finance, etc.)
+    private func navigateToFinance() -> UIViewController {
+        let mainStoryboard = UIStoryboard(name:"Main",bundle:nil)//Bundle.main)
+        let navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: FinanceLoginViewController.identifier) as? FinanceLoginViewController)!
+        return navigateVC
+    }
+    
+    private func naviagateToRetail() -> UIViewController {
+        let mainStoryboard = UIStoryboard(name:"Retail",bundle:Bundle.main)
+        let navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: RetailViewController.identifier) as? RetailViewController)!
+        return navigateVC
+    }
+        
     func onAppOpenAttributionFailure(_ error: Error) {
         print("\(error)")
     }
@@ -195,16 +266,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
         ud.set(false,forKey: "isLoggedIn")
     }
 
-    private func addUserLogins(){
+    private func configure(vertical: String){
         //SA AppsFlyer - add username and password to use.
         let username = "appsflyer"
         let password = "password"
         let defaults = UserDefaults.standard
         defaults.set(username,forKey: "username")
         defaults.set(password,forKey: "password")
+        defaults.set(vertical,forKey: "vertical")
         
     }
-    
+        
     func getNavigateTo() -> String? {
         return navigateTo
     }

@@ -8,8 +8,9 @@
 
 import UIKit
 
-class Dashboard1099ViewController: UIViewController {
+class DeepLink1ViewController: UIViewController {
 
+    static let identifier = "DeepLink1ViewController"
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,7 +22,7 @@ class Dashboard1099ViewController: UIViewController {
         let userDefaults = UserDefaults.standard
         userDefaults.set(false,forKey: "isLoggedIn")
         userDefaults.synchronize()
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: false, completion: nil)
         clearAD()
     }
     

@@ -1,5 +1,5 @@
 //
-//  PromotionViewController.swift
+//  DeepLink2ViewController.swift
 //  AppsFlyerDemoJK
 //
 //  Created by Jeff Kongthong on 2/17/20.
@@ -8,8 +8,9 @@
 
 import UIKit
 
-class PromotionViewController: UIViewController {
+class DeepLink2ViewController: UIViewController {
 
+    static let identifier = "DeepLink2ViewController"
     override func viewDidLoad() {
         super.viewDidLoad()
 
