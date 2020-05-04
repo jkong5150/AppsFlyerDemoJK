@@ -10,6 +10,8 @@ import UIKit
 import AppsFlyerLib
 
 class FinanceLoginViewController: UIViewController {
+    
+    static let identifier = "FinanceLoginViewController"
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!

@@ -140,27 +140,58 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
         let mainStoryboard = UIStoryboard(name:"Main",bundle:Bundle.main)
         let navigateVC : UIViewController
         switch (navigateTo){
-        case DeepLinkConfig.DEEPLINK1:
-            navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: DeepLink1ViewController.identifier) as? DeepLink1ViewController)!
-            
-        case DeepLinkConfig.DEEPLINK2:
-            navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: DeepLink2ViewController.identifier) as? DeepLink2ViewController)!
+            case DeepLinkConfig.DEEPLINK1:
+                navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: DeepLink1ViewController.identifier) as? DeepLink1ViewController)!
+                
+            case DeepLinkConfig.DEEPLINK2:
+                navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: DeepLink2ViewController.identifier) as? DeepLink2ViewController)!
 
-        default:
-            navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: VerticalLoaderViewController.identifier) as? VerticalLoaderViewController)!
+            default:
+                //navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: VerticalLoaderViewController.identifier) as? VerticalLoaderViewController)!
+                navigateVC = navigateToVertical()
         }
-        print(navigateVC)
         //check logged in.
-        if UserDefaults.standard.bool(forKey:"isLoggedIn")  {
+//        if UserDefaults.standard.bool(forKey:"isLoggedIn")  {
 //            let rootController = window?.rootViewController
 //            let currentContoller
-            window?.rootViewController?.dismiss(animated: false, completion: nil)
-            window?.rootViewController?.present(navigateVC, animated: true, completion: nil)
-            //window?.rootViewControlle?
-            window?.makeKeyAndVisible()
-        }
+        //window?.rootViewController?.dismiss(animated: false, completion: nil)
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController?.modalPresentationStyle = .fullScreen
+        window?.rootViewController = navigateVC
+        //window?.rootViewController?.present(navigateVC, animated: true, completion: nil)
+        window?.makeKeyAndVisible()
+//        }
     }
     
+    private func navigateToVertical() -> UIViewController{
+        let vc: UIViewController
+        let vertical = UserDefaults.standard.object(forKey: "vertical") as? String
+        switch (vertical){
+        case Verticals.retail.rawValue:
+            vc =  naviagateToRetail()
+        case Verticals.finance.rawValue:
+            vc =  navigateToFinance()
+//        case Verticals.finance.rawValue:
+//            navigateVC =  (storyboard.instantiateViewController(withIdentifier: "PromotionViewController") as? PromotionViewController)!
+        default:
+            vc =  navigateToFinance()
+        }
+        return vc
+    }
+
+    // MARK: Vertical View controllers (Retail, Finance, etc.)
+    private func navigateToFinance() -> UIViewController {
+        let mainStoryboard = UIStoryboard(name:"Main",bundle:nil)//Bundle.main)
+        let navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: FinanceLoginViewController.identifier) as? FinanceLoginViewController)!
+        return navigateVC
+    }
+    
+    private func naviagateToRetail() -> UIViewController {
+        let mainStoryboard = UIStoryboard(name:"Retail",bundle:Bundle.main)
+        let navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: RetailViewController.identifier) as? RetailViewController)!
+        return navigateVC
+    }
+        
     func onAppOpenAttributionFailure(_ error: Error) {
         print("\(error)")
     }

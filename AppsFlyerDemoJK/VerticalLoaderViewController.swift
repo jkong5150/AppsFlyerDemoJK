@@ -30,8 +30,8 @@ class VerticalLoaderViewController : UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(false)
         setNavigateTo()
-        //This is necessary because this is the default page.  It needs to forward to a storyboard VC.  The default one is blank.  
-        navigateToPage()
+        //This is necessary because this is the default page.  It needs to forward to a storyboard VC.  The default one is blank.
+//        navigateToPage()
     }
     
 // MARK: Vertical View controllers (Retail, Finance, etc.)
