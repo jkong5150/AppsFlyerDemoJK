@@ -10,6 +10,9 @@ import UIKit
 
 
 class VerticalLoaderViewController : UIViewController {
+    
+    static let identifier = "VerticalLoaderViewController"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigateTo()
@@ -27,6 +30,7 @@ class VerticalLoaderViewController : UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(false)
         setNavigateTo()
+        //This is necessary because this is the default page.  It needs to forward to a storyboard VC.  The default one is blank.  
         navigateToPage()
     }
     
@@ -52,10 +56,10 @@ class VerticalLoaderViewController : UIViewController {
         //already logged in.  run this logic
         if (isLoggedIn) {
             switch (navigateTo){
-            case "1099":
-                navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: "Dashboard1099ViewController") as? Dashboard1099ViewController)!
-            case "promo":
-                navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: "PromotionViewController") as? PromotionViewController)!
+            case DeepLinkConfig.DEEPLINK1:
+                navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: DeepLink1ViewController.identifier) as? DeepLink1ViewController)!
+            case DeepLinkConfig.DEEPLINK2:
+                navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: DeepLink2ViewController.identifier) as? DeepLink2ViewController)!
 
             default:
                 navigateVC =  navigateToVC()

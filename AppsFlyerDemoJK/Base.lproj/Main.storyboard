@@ -98,11 +98,19 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9zy-ou-Njw">
+                                <rect key="frame" x="137.66666666666666" y="368" width="138.99999999999997" height="30"/>
+                                <state key="normal" title="Not yet a customer?"/>
+                                <connections>
+                                    <action selector="notYetACustomerTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hsj-K4-7bg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Vuu-EE-eny" firstAttribute="top" secondItem="fjD-r3-dOJ" secondAttribute="bottom" constant="22.666666666666856" id="06H-Lq-gYk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Vuu-EE-eny" secondAttribute="trailing" constant="16" id="1ds-Pm-nGe"/>
+                            <constraint firstItem="9zy-ou-Njw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4uV-4Q-neA"/>
                             <constraint firstAttribute="bottomMargin" secondItem="6QQ-4a-Yv3" secondAttribute="bottom" constant="85" id="89W-Gc-T4J"/>
                             <constraint firstItem="Vuu-EE-eny" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="BXJ-pw-7r5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cVG-un-YZ0" secondAttribute="trailing" constant="45" id="VYP-YY-FUY"/>
@@ -110,6 +118,7 @@
                             <constraint firstItem="6QQ-4a-Yv3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="XFX-k4-jQV"/>
                             <constraint firstItem="teu-2Z-ppN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="158" id="Xxf-af-mzX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Vuu-EE-eny" secondAttribute="bottom" id="agY-1X-HZH"/>
+                            <constraint firstItem="9zy-ou-Njw" firstAttribute="top" secondItem="teu-2Z-ppN" secondAttribute="bottom" constant="7.3333333333333712" id="hyz-xz-2sa"/>
                             <constraint firstItem="fjD-r3-dOJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="39" id="jrd-QN-6de"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fjD-r3-dOJ" secondAttribute="trailing" constant="45.333333333333314" id="y9C-Gw-P5f"/>
                         </constraints>
@@ -171,10 +180,10 @@
             </objects>
             <point key="canvasLocation" x="118.84057971014494" y="-90.401785714285708"/>
         </scene>
-        <!--Dashboard1099 View Controller-->
+        <!--Deep Link1 View Controller-->
         <scene sceneID="eyQ-2p-ghg">
             <objects>
-                <viewController storyboardIdentifier="Dashboard1099ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gNy-Ga-ENZ" customClass="Dashboard1099ViewController" customModule="AppsFlyerDemoJK" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DeepLink1ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gNy-Ga-ENZ" customClass="DeepLink1ViewController" customModule="AppsFlyerDemoJK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7w5-xV-jzl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -205,45 +214,71 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QXq-P6-Q6A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1663.7681159420292" y="-450"/>
+            <point key="canvasLocation" x="-791" y="-1070"/>
         </scene>
-        <!--Promotion View Controller-->
+        <!--Deep Link2 View Controller-->
         <scene sceneID="AvZ-wJ-AKo">
             <objects>
-                <viewController storyboardIdentifier="PromotionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TC9-NW-bUK" customClass="PromotionViewController" customModule="AppsFlyerDemoJK" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DeepLink2ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TC9-NW-bUK" customClass="DeepLink2ViewController" customModule="AppsFlyerDemoJK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VKg-VE-NCP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONN-ty-LqN">
-                                <rect key="frame" x="332" y="63" width="48" height="30"/>
-                                <state key="normal" title="Logout"/>
+                                <rect key="frame" x="160.66666666666666" y="812" width="93" height="30"/>
+                                <state key="normal" title="Back to Login"/>
                                 <connections>
                                     <action selector="logoutButtonTapped:" destination="NGs-vo-gd2" eventType="touchUpInside" id="x3l-wz-aLi"/>
                                     <action selector="logoutTapped:" destination="TC9-NW-bUK" eventType="touchUpInside" id="2x2-Zt-85x"/>
                                     <action selector="logoutTapped:" destination="gNy-Ga-ENZ" eventType="touchUpInside" id="MzE-0z-OpG"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Promotion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X7J-V7-0eI">
-                                <rect key="frame" x="167.66666666666666" y="74" width="79" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Bank App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X7J-V7-0eI">
+                                <rect key="frame" x="138" y="74" width="138" height="28.666666666666671"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="gMB-Zg-4mI">
+                                <rect key="frame" x="20" y="128" width="207.33333333333334" height="146"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not yet a customer?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJN-6o-QSc">
+                                        <rect key="frame" x="0.0" y="0.0" width="207.33333333333334" height="28.666666666666668"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" red="0.20126897099999999" green="0.46202808620000002" blue="0.68929255010000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Saving" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOV-XV-TJ5">
+                                        <rect key="frame" x="0.0" y="58.66666666666665" width="126.33333333333333" height="28.666666666666664"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" red="0.20126897099999999" green="0.46202808620000002" blue="0.68929255010000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apply for a loan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="umD-75-4NS">
+                                        <rect key="frame" x="0.0" y="117.33333333333336" width="160" height="28.666666666666671"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" red="0.20126897099999999" green="0.46202808620000002" blue="0.68929255010000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.12666761879999999" green="0.1505678594" blue="0.25588959459999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="jXp-UP-TRd" firstAttribute="bottom" secondItem="ONN-ty-LqN" secondAttribute="bottom" constant="20" id="12r-sB-vvi"/>
                             <constraint firstItem="X7J-V7-0eI" firstAttribute="top" secondItem="jXp-UP-TRd" secondAttribute="top" constant="30" id="DS4-84-yup"/>
+                            <constraint firstItem="ONN-ty-LqN" firstAttribute="centerX" secondItem="VKg-VE-NCP" secondAttribute="centerX" id="FSn-YC-RkA"/>
+                            <constraint firstItem="gMB-Zg-4mI" firstAttribute="top" secondItem="X7J-V7-0eI" secondAttribute="bottom" constant="25.333333333333329" id="gRN-bf-thn"/>
+                            <constraint firstItem="gMB-Zg-4mI" firstAttribute="leading" secondItem="jXp-UP-TRd" secondAttribute="leading" constant="20" id="jHX-vu-hON"/>
                             <constraint firstItem="X7J-V7-0eI" firstAttribute="centerX" secondItem="jXp-UP-TRd" secondAttribute="centerX" id="kyL-BZ-Djv"/>
-                            <constraint firstItem="jXp-UP-TRd" firstAttribute="trailing" secondItem="ONN-ty-LqN" secondAttribute="trailing" constant="34" id="srH-Sz-c76"/>
-                            <constraint firstItem="ONN-ty-LqN" firstAttribute="top" secondItem="jXp-UP-TRd" secondAttribute="top" constant="19" id="tkA-hU-DPM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jXp-UP-TRd"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hpc-IK-yAf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2528.985507246377" y="-450"/>
+            <point key="canvasLocation" x="118.84057971014494" y="-1070.0892857142856"/>
         </scene>
         <!--Dashboard Home View Controller-->
         <scene sceneID="MsO-he-Vko">
@@ -282,12 +317,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9uX-Un-71l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1742.0289855072465" y="260.49107142857144"/>
+            <point key="canvasLocation" x="2567" y="722"/>
         </scene>
         <!--Vertical Loader View Controller-->
         <scene sceneID="ANy-fI-RhA">
             <objects>
-                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hjO-YP-emx" customClass="VerticalLoaderViewController" customModule="AppsFlyerDemoJK" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VerticalLoaderViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hjO-YP-emx" customClass="VerticalLoaderViewController" customModule="AppsFlyerDemoJK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BXs-Ek-G1o">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -297,7 +332,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lXX-5c-2ap" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2801" y="426"/>
+            <point key="canvasLocation" x="-2949" y="-80"/>
         </scene>
         <!--Finance Main View Controller-->
         <scene sceneID="4xk-EB-pax">

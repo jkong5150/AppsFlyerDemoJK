@@ -8,8 +8,9 @@
 
 import UIKit
 
-class Dashboard1099ViewController: UIViewController {
+class DeepLink1ViewController: UIViewController {
 
+    static let identifier = "DeepLink1ViewController"
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -11,6 +11,8 @@ import UIKit
 
 class FinanceMainViewController : UINavigationController {
     
+    static let identifier = "FinanceMainViewController"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

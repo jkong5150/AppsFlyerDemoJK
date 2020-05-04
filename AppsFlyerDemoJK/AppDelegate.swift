@@ -107,6 +107,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
                 }
             }
         }
+        updateRootVC()
         
 //        if let navigateTo = data["af_sub1"] as? String {
 //            setNavigateTo(navigateTo: navigateTo)
@@ -131,19 +132,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
         if let navigateTo = data["af_sub1"] as? String {
             setNavigateTo(navigateTo: navigateTo)
         }
-        
+        //updateRootVC()
+    }
+    
+    private func updateRootVC(){
         //If the app is already opena dn user is already logged in - how do we know??? Force change rootview controller? Seems sketch
         let mainStoryboard = UIStoryboard(name:"Main",bundle:Bundle.main)
         let navigateVC : UIViewController
         switch (navigateTo){
-        case "1099":
-            navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: "Dashboard1099ViewController") as? Dashboard1099ViewController)!
+        case DeepLinkConfig.DEEPLINK1:
+            navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: DeepLink1ViewController.identifier) as? DeepLink1ViewController)!
             
-        case "promo":
-            navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: "PromotionViewController") as? PromotionViewController)!
+        case DeepLinkConfig.DEEPLINK2:
+            navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: DeepLink2ViewController.identifier) as? DeepLink2ViewController)!
 
         default:
-            navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: "DashboardHomeViewController") as? DashboardHomeViewController)!
+            navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: VerticalLoaderViewController.identifier) as? VerticalLoaderViewController)!
         }
         print(navigateVC)
         //check logged in.
@@ -155,7 +159,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
             //window?.rootViewControlle?
             window?.makeKeyAndVisible()
         }
-
     }
     
     func onAppOpenAttributionFailure(_ error: Error) {

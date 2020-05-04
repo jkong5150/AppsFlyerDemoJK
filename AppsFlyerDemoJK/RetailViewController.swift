@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 
 class RetailViewController : UIViewController {
+    
+    static let identifier = "RetailViewController"
     override func viewDidLoad() {
         super.viewDidLoad()
     }

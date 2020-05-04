@@ -54,7 +54,13 @@ class FinanceLoginViewController: UIViewController {
         }
     }
     
-
+    @IBAction func notYetACustomerTapped(_ sender: Any) {
+        //force the navigateTo
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = (storyboard.instantiateViewController(withIdentifier: DeepLink2ViewController.identifier ) as? DeepLink2ViewController)!
+        present(vc,animated: true,completion: nil)
+    }
+    
     @IBAction func loginButtonTapped(_ sender: Any) {
         validateLogin()
     }
@@ -93,12 +99,12 @@ class FinanceLoginViewController: UIViewController {
         let mainStoryboard = UIStoryboard(name:"Main",bundle:Bundle.main)
         let navigateVC : UIViewController
         switch (navigateTo){
-        case "1099":
-            navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: "Dashboard1099ViewController") as? Dashboard1099ViewController)!
-        case "promo":
-            navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: "PromotionViewController") as? PromotionViewController)!
+        case DeepLinkConfig.DEEPLINK1:
+            navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: DeepLink1ViewController.identifier) as? DeepLink1ViewController)!
+        case DeepLinkConfig.DEEPLINK2:
+            navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: DeepLink2ViewController.identifier ) as? DeepLink2ViewController)!
         default:
-            navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: "FinanceMainViewController") as? FinanceMainViewController)!
+            navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: FinanceMainViewController.identifier) as? FinanceMainViewController)!
         }
         
         //max screen
