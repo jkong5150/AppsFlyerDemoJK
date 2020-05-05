@@ -10,6 +10,6 @@ import Foundation
 
 class DeepLinkConfig {
     //make these match with af_sub1 in your deeplink.  
-    static let DEEPLINK1: String = "1099"
+    static let DEEPLINK1: String = "alert"
     static let DEEPLINK2: String = "promo"
 }

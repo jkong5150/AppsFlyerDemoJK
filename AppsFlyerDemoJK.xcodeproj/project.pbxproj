@@ -24,6 +24,7 @@
 		B2C4C196245E100A00403FFA /* Retail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2C4C195245E100A00403FFA /* Retail.storyboard */; };
 		B2C4C198245E22F500403FFA /* RetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C4C197245E22F500403FFA /* RetailViewController.swift */; };
 		B2C4C19A245E385E00403FFA /* Verticals.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C4C199245E385E00403FFA /* Verticals.swift */; };
+		B2D554AF24618E6D004A9F1B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D554AE24618E6D004A9F1B /* SignUpViewController.swift */; };
 		B2D55A6823FAF0B800283B67 /* DeepLink1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D55A6723FAF0B800283B67 /* DeepLink1ViewController.swift */; };
 		B2D55A6A23FB6C3100283B67 /* DeepLink2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D55A6923FB6C3100283B67 /* DeepLink2ViewController.swift */; };
 		B2FC3561245E7CD50006C12A /* FinanceMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FC3560245E7CD50006C12A /* FinanceMainViewController.swift */; };
@@ -84,6 +85,7 @@
 		B2C4C195245E100A00403FFA /* Retail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Retail.storyboard; sourceTree = "<group>"; };
 		B2C4C197245E22F500403FFA /* RetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetailViewController.swift; sourceTree = "<group>"; };
 		B2C4C199245E385E00403FFA /* Verticals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Verticals.swift; sourceTree = "<group>"; };
+		B2D554AE24618E6D004A9F1B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		B2D55A6723FAF0B800283B67 /* DeepLink1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLink1ViewController.swift; sourceTree = "<group>"; };
 		B2D55A6923FB6C3100283B67 /* DeepLink2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLink2ViewController.swift; sourceTree = "<group>"; };
 		B2FC3560245E7CD50006C12A /* FinanceMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceMainViewController.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				B2FC3566245F07F20006C12A /* FInance */,
 				B2FC3562245E7FF40006C12A /* SwiftUIView.swift */,
 				B25E1EE323F8A53B00B4AE6C /* Main.storyboard */,
+				B2D554AE24618E6D004A9F1B /* SignUpViewController.swift */,
 				B2C4C195245E100A00403FFA /* Retail.storyboard */,
 				B25E1EE823F8A53D00B4AE6C /* LaunchScreen.storyboard */,
 				B2C4C193245E054F00403FFA /* VerticalLoaderViewController.swift */,
@@ -484,6 +487,7 @@
 				B2FC3572245F50E10006C12A /* FinanceMyAccountsDetailViewController.swift in Sources */,
 				B2FC356E245F17D60006C12A /* FinanceData.swift in Sources */,
 				B2D55A6A23FB6C3100283B67 /* DeepLink2ViewController.swift in Sources */,
+				B2D554AF24618E6D004A9F1B /* SignUpViewController.swift in Sources */,
 				B2FC3575245F65300006C12A /* AccountTranscation.swift in Sources */,
 				B2FC3563245E7FF40006C12A /* SwiftUIView.swift in Sources */,
 				B2FC356B245F0A450006C12A /* FinanceTableViewCell.swift in Sources */,

@@ -25,7 +25,10 @@ class FinanceMyAccountViewController : UIViewController, UITableViewDelegate, UI
         
         self.title = "Accounts"
     }
+    
+    private func addTapped(){
         
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return accounts.count
     }
