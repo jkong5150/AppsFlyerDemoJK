@@ -13,6 +13,7 @@ class DeepLink1ViewController: UIViewController {
     static let identifier = "DeepLink1ViewController"
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Welcome to My Bank"
 
         // Do any additional setup after loading the view.
     }

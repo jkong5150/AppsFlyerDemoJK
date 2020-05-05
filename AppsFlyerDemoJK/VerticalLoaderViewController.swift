@@ -15,7 +15,12 @@ class VerticalLoaderViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigateTo()
+        let vc = FinanceLoginViewController()
+        addChild(vc)
+        vc.view.frame = view.bounds
+        view.addSubview(vc.view)
+        vc.didMove(toParent: self)
+ //       setNavigateTo()
     }
     //pass deeplink information here.
     private var navigateTo: String?

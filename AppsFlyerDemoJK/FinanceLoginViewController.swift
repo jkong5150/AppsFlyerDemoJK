@@ -56,10 +56,10 @@ class FinanceLoginViewController: UIViewController {
         }
     }
     
-    @IBAction func notYetACustomerTapped(_ sender: Any) {
+    @IBAction func signUpTapped(_ sender: Any) {
         //force the navigateTo
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = (storyboard.instantiateViewController(withIdentifier: DeepLink2ViewController.identifier ) as? DeepLink2ViewController)!
+        let vc = (storyboard.instantiateViewController(withIdentifier: SignUpViewController.identifier ) as? SignUpViewController)!
         vc.modalPresentationStyle = .fullScreen
         present(vc,animated: true,completion: nil)
     }
@@ -114,7 +114,7 @@ class FinanceLoginViewController: UIViewController {
         navigateVC.modalPresentationStyle = .fullScreen
         
         AppsFlyerTracker.shared().trackEvent(AFEventLogin, withValues: nil)
-        present(navigateVC, animated: false, completion: nil)
+        present(navigateVC, animated: true, completion: nil)
     }
 }
 

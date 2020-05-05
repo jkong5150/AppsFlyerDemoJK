@@ -133,6 +133,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
         
     }
     
+//Mark:  CUSTOMIZE
     private func pushDeepLinkVC(){
         let mainStoryboard = UIStoryboard(name:"Main",bundle:Bundle.main)
         let navigateVC : UIViewController
@@ -148,8 +149,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
                 //navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: VerticalLoaderViewController.identifier) as? VerticalLoaderViewController)!
                 navigateVC = navigateToVertical()
         }
-       // window?.rootViewController?.modalPresentationStyle = .fullScreen
         
+        //CUSOTMIZE UI
+        //navigateVC.modalPresentationStyle = .fullScreen
+        navigateVC.view.backgroundColor = .black
+        navigateVC.view.alpha = 0.95
+        let labels = navigateVC.view.subviews.compactMap { $0 as? UILabel }
+        let buttons = navigateVC.view.subviews.compactMap { $0 as? UIButton }
+
+        for label in labels {
+        //Do something with label
+            label.textColor = .white
+        }
+        for button in buttons {
+            button.titleLabel?.textColor = .white
+            
+        }
         window?.rootViewController?.present(navigateVC, animated: true, completion: nil)
     }
     
@@ -166,8 +181,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
 //    }
     
     private func setRootVC(){
-        //If the app is already opena dn user is already logged in - how do we know??? Force change rootview controller? Seems sketch
-       // let mainStoryboard = UIStoryboard(name:"Main",bundle:Bundle.main)
         let navigateVC : UIViewController
         switch (navigateTo){
 //            case DeepLinkConfig.DEEPLINK1:
@@ -202,8 +215,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
             vc =  naviagateToRetail()
         case Verticals.finance.rawValue:
             vc =  navigateToFinance()
-//        case Verticals.finance.rawValue:
-//            navigateVC =  (storyboard.instantiateViewController(withIdentifier: "PromotionViewController") as? PromotionViewController)!
         default:
             vc =  navigateToFinance()
         }
