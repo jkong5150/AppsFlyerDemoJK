@@ -8,6 +8,7 @@
 
 import UIKit
 import AppsFlyerLib
+import UserNotifications
 
 
 @UIApplicationMain
@@ -32,6 +33,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
         configure(vertical: vertical)
         //define the vertical
         
+        //push
+        registerForPushNotifications()
+        
         
         AppsFlyerTracker.shared().appsFlyerDevKey = "tRiUHG43JTfCZrp6LnXrhD"
         AppsFlyerTracker.shared().appleAppID = "211122514"
@@ -48,7 +52,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
             object: nil)
         setRootVC()
         return true
-    }   
+    }
+    
+    func application(
+      _ application: UIApplication,
+      didFailToRegisterForRemoteNotificationsWithError error: Error) {
+      print("Failed to register: \(error)")
+    }
+    
+    func application(
+      _ application: UIApplication,
+      didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data
+    ) {
+      let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
+      let token = tokenParts.joined()
+      print("Device Token: \(token)")
+    }
     
     // Deeplinking
     
@@ -79,7 +98,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
     }
     
     
-    // Mark: AppsFlyerTrackerDelegate implementation
+    // MARK: *** AppsFlyerTrackerDelegate implementation ***
     
     //Mark: Handle Conversion Data (Deferred Deep Link)
     func onConversionDataSuccess(_ data: [AnyHashable: Any]) {
@@ -294,6 +313,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
     
     func setNavigateTo(navigateTo: String?) {
         self.navigateTo = navigateTo
+    }
+    // MARK: *** Push Notifications ***
+    func registerForPushNotifications() {
+//            UNUserNotificationCenter.current()
+//                .requestAuthorization(options: [.alert, .sound, .badge]) {(granted, error) in
+//                    print("Permission granted: \(granted)")
+//            }
+        UNUserNotificationCenter.current()
+          .requestAuthorization(options: [.alert, .sound, .badge]) {
+            [weak self] granted, error in
+              
+            print("Permission granted: \(granted)")
+            guard granted else { return }
+            self?.getNotificationSettings()
+        }
+    }
+    
+
+    func getNotificationSettings() {
+      UNUserNotificationCenter.current().getNotificationSettings { settings in
+        print("Notification settings: \(settings)")
+        guard settings.authorizationStatus == .authorized else { return }
+        DispatchQueue.main.async {
+          UIApplication.shared.registerForRemoteNotifications()
+        }
+      }
     }
 
 }
