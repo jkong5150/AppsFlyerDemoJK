@@ -12,7 +12,7 @@ import UserNotifications
 
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate, UNUserNotificationCenterDelegate{
 
     var window: UIWindow?
      var navigateTo: String?
@@ -94,6 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
     
     // Report Push Notification attribution data for re-engagements
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        print(userInfo)
         AppsFlyerTracker.shared().handlePushNotification(userInfo)
     }
     
@@ -152,7 +153,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
         
     }
     
-//Mark:  CUSTOMIZE
+// MARK:  *** PUSH  NOTIFICATIONS: UNUserNotificationCenterDelegate ****
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        print("userNotificationCenter: didReceive")
+        guard let af = response.notification.request.content.userInfo["af"] as? [String : Any] else {
+            return
+            
+        }
+        guard let afsub1 = af["af_sub1"] as? String else {
+            // Either profile["Addresses"] is nil, or it's not a [[String: Any]]
+            // Handle error here
+            return
+        }
+        setNavigateTo(navigateTo: afsub1)
+        AppsFlyerTracker.shared().handlePushNotification(response.notification.request.content.userInfo)
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        AppsFlyerTracker.shared().handlePushNotification(notification.request.content.userInfo)
+        print("userNotificationCenter: willPresent")
+    }
+    
+//MARK:  ***  PRIVATE  ****
     private func pushDeepLinkVC(){
         let mainStoryboard = UIStoryboard(name:"Main",bundle:Bundle.main)
         let navigateVC : UIViewController
@@ -328,6 +350,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate {
             guard granted else { return }
             self?.getNotificationSettings()
         }
+        //DO I NEED THIS?
+        UNUserNotificationCenter.current().delegate = self
+
     }
     
 
