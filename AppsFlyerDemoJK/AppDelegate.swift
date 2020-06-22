@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate, 
         // Override point for customization after application launch.
         
         /*** CHANGE THE VERTICAL!!! (Retail, Finance, etc.) *****/
-        let vertical : String = Verticals.finance.rawValue
+        let vertical : String = Verticals.retail.rawValue
         /*** SA CHANGE THIS!!!!   *****/
         
         //add dummy user logins
@@ -242,8 +242,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate, 
         //window?.rootViewController?.dismiss(animated: false, completion: nil)
         self.window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController?.modalPresentationStyle = .fullScreen
-        window?.rootViewController = navigateVC
-        //window?.rootViewController?.present(navigateVC, animated: true, completion: nil)
+        window?.rootViewController = UINavigationController(rootViewController:navigateVC)        //window?.rootViewController?.present(navigateVC, animated: true, completion: nil)
         window?.makeKeyAndVisible()
 //        }
     }
@@ -270,8 +269,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate, 
     }
     
     private func naviagateToRetail() -> UIViewController {
-        let mainStoryboard = UIStoryboard(name:"Retail",bundle:Bundle.main)
-        let navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: RetailViewController.identifier) as? RetailViewController)!
+//        let mainStoryboard = UIStoryboard(name:"Retail",bundle:Bundle.main)
+//        let navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: RetailViewController.identifier) as? RetailViewController)!
+        let navigateVC = RetailViewController(collectionViewLayout: UICollectionViewFlowLayout())
         return navigateVC
     }
         
