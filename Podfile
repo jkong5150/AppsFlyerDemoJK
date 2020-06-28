@@ -6,6 +6,7 @@ target 'AppsFlyerDemoJK' do
   use_frameworks!
   pod 'AppsFlyerFramework'
   # Pods for AppsFlyerDemoJK
+  pod 'LBTAComponents'
 
   target 'AppsFlyerDemoJKTests' do
     inherit! :search_paths

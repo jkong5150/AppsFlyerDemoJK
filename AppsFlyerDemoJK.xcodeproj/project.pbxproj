@@ -3,12 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		2A2E530D9772CD0EABE0449E /* Pods_AppsFlyerDemoJKUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFA4B581BCE7E6CC13E418DF /* Pods_AppsFlyerDemoJKUITests.framework */; };
 		5BE8702DF9AFB439AA4B485F /* Pods_AppsFlyerDemoJK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0855C121FF82B25BB828C830 /* Pods_AppsFlyerDemoJK.framework */; };
+		B25D2FC224A0E3DB007F6494 /* RetailDataSourceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25D2FC124A0E3DB007F6494 /* RetailDataSourceController.swift */; };
 		B25E1EE023F8A53B00B4AE6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25E1EDF23F8A53B00B4AE6C /* AppDelegate.swift */; };
 		B25E1EE223F8A53B00B4AE6C /* FinanceLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25E1EE123F8A53B00B4AE6C /* FinanceLoginViewController.swift */; };
 		B25E1EE523F8A53B00B4AE6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B25E1EE323F8A53B00B4AE6C /* Main.storyboard */; };
@@ -62,6 +63,7 @@
 		610B497283272A474A9B3241 /* Pods-AppsFlyerDemoJKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppsFlyerDemoJKTests.debug.xcconfig"; path = "Target Support Files/Pods-AppsFlyerDemoJKTests/Pods-AppsFlyerDemoJKTests.debug.xcconfig"; sourceTree = "<group>"; };
 		62F66855F361DDEFE5DEC9A3 /* Pods-AppsFlyerDemoJKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppsFlyerDemoJKTests.release.xcconfig"; path = "Target Support Files/Pods-AppsFlyerDemoJKTests/Pods-AppsFlyerDemoJKTests.release.xcconfig"; sourceTree = "<group>"; };
 		B195C438E9F1DB7D7045C354 /* Pods_AppsFlyerDemoJKTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppsFlyerDemoJKTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B25D2FC124A0E3DB007F6494 /* RetailDataSourceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetailDataSourceController.swift; sourceTree = "<group>"; };
 		B25E1EDC23F8A53B00B4AE6C /* AppsFlyerDemoJK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppsFlyerDemoJK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B25E1EDF23F8A53B00B4AE6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B25E1EE123F8A53B00B4AE6C /* FinanceLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceLoginViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +145,13 @@
 				DFA4B581BCE7E6CC13E418DF /* Pods_AppsFlyerDemoJKUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B215AB5424A90C3A007B2297 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		B25E1ED323F8A53B00B4AE6C = {
@@ -244,7 +253,9 @@
 		B2FC3568245F084A0006C12A /* Retail */ = {
 			isa = PBXGroup;
 			children = (
+				B215AB5424A90C3A007B2297 /* Model */,
 				B2C4C197245E22F500403FFA /* RetailViewController.swift */,
+				B25D2FC124A0E3DB007F6494 /* RetailDataSourceController.swift */,
 			);
 			name = Retail;
 			sourceTree = "<group>";
@@ -282,6 +293,7 @@
 				B25E1ED823F8A53B00B4AE6C /* Sources */,
 				B25E1ED923F8A53B00B4AE6C /* Frameworks */,
 				B25E1EDA23F8A53B00B4AE6C /* Resources */,
+				47DEFC76497DBDF192BB0232 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -430,6 +442,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		47DEFC76497DBDF192BB0232 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AppsFlyerDemoJK/Pods-AppsFlyerDemoJK-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AppsFlyerDemoJK/Pods-AppsFlyerDemoJK-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppsFlyerDemoJK/Pods-AppsFlyerDemoJK-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		73B257727E1BB5FC0728B07D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -499,6 +528,7 @@
 				B276D7C5245F910F005B90A1 /* DeepLinkConfig.swift in Sources */,
 				B2FC3561245E7CD50006C12A /* FinanceMainViewController.swift in Sources */,
 				B2C4C19A245E385E00403FFA /* Verticals.swift in Sources */,
+				B25D2FC224A0E3DB007F6494 /* RetailDataSourceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ProductCell: UICollectionViewCell{
+class ProductCellTemp: UICollectionViewCell{
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -43,7 +43,7 @@ class RetailViewController : UICollectionViewController, UICollectionViewDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView?.backgroundColor = .white
-        collectionView?.register(ProductCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView?.register(ProductCellTemp.self, forCellWithReuseIdentifier: cellId)
         collectionView.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
         collectionView.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerId)
     }
