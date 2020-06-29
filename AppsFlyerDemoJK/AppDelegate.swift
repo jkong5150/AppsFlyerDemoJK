@@ -269,9 +269,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate, 
     }
     
     private func naviagateToRetail() -> UIViewController {
-//        let mainStoryboard = UIStoryboard(name:"Retail",bundle:Bundle.main)
-//        let navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: RetailViewController.identifier) as? RetailViewController)!
-        let navigateVC = RetailDataSourceController()
+        let mainStoryboard = UIStoryboard(name:"Retail",bundle:Bundle.main)
+        let navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: RetailHomeViewController.identifier) as? RetailHomeViewController)!
+ //       let navigateVC = RetailDataSourceController()
         return navigateVC
     }
         
