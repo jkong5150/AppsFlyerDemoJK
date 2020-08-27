@@ -62,7 +62,8 @@ extension RetailHomeViewController : UICollectionViewDataSource {
 }
 extension RetailHomeViewController : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width:180, height: 260)
+        //CGSize(width:180, height: 260)
+        CGSize(width:view.frame.width/2.15, height: 260)
     }
 }
 

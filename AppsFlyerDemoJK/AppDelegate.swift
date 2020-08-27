@@ -35,13 +35,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate, 
         
         //push
         registerForPushNotifications()
-        
+        UNUserNotificationCenter.current().requestAuthorization(options:[.badge, .alert, .sound]){ (granted, error) in }
+        application.registerForRemoteNotifications()
+        AppsFlyerTracker.shared().useUninstallSandbox = true
         
         AppsFlyerTracker.shared().appsFlyerDevKey = "tRiUHG43JTfCZrp6LnXrhD"
         AppsFlyerTracker.shared().appleAppID = "211122514"
         AppsFlyerTracker.shared().delegate = self
         /* Set isDebug to true to see AppsFlyer debug logs */
         AppsFlyerTracker.shared().isDebug = true
+        
         
         AppsFlyerTracker.shared().resolveDeepLinkURLs = ["click.sflink.afsdktests.com"]
         
@@ -67,6 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate, 
       let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
       let token = tokenParts.joined()
       print("Device Token: \(token)")
+      AppsFlyerTracker.shared().registerUninstall(deviceToken)
     }
     
     // Deeplinking
