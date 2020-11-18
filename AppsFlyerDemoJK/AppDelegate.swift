@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate, 
         // Override point for customization after application launch.
         
         /*** CHANGE THE VERTICAL!!! (Retail, Finance, etc.) *****/
-        let vertical : String = Verticals.finance.rawValue
+        let vertical : String = Verticals.retail.rawValue
         /*** SA CHANGE THIS!!!!   *****/
         
         //add dummy user logins
@@ -35,13 +35,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate, 
         
         //push
         registerForPushNotifications()
-        
+        UNUserNotificationCenter.current().requestAuthorization(options:[.badge, .alert, .sound]){ (granted, error) in }
+        application.registerForRemoteNotifications()
+        AppsFlyerTracker.shared().useUninstallSandbox = true
         
         AppsFlyerTracker.shared().appsFlyerDevKey = "tRiUHG43JTfCZrp6LnXrhD"
         AppsFlyerTracker.shared().appleAppID = "211122514"
         AppsFlyerTracker.shared().delegate = self
         /* Set isDebug to true to see AppsFlyer debug logs */
         AppsFlyerTracker.shared().isDebug = true
+        
         
         AppsFlyerTracker.shared().resolveDeepLinkURLs = ["click.sflink.afsdktests.com"]
         
@@ -67,6 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate, 
       let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
       let token = tokenParts.joined()
       print("Device Token: \(token)")
+      AppsFlyerTracker.shared().registerUninstall(deviceToken)
     }
     
     // Deeplinking
@@ -242,8 +246,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate, 
         //window?.rootViewController?.dismiss(animated: false, completion: nil)
         self.window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController?.modalPresentationStyle = .fullScreen
-        window?.rootViewController = navigateVC
-        //window?.rootViewController?.present(navigateVC, animated: true, completion: nil)
+        window?.rootViewController = UINavigationController(rootViewController:navigateVC)        //window?.rootViewController?.present(navigateVC, animated: true, completion: nil)
         window?.makeKeyAndVisible()
 //        }
     }
@@ -271,7 +274,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate, 
     
     private func naviagateToRetail() -> UIViewController {
         let mainStoryboard = UIStoryboard(name:"Retail",bundle:Bundle.main)
-        let navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: RetailViewController.identifier) as? RetailViewController)!
+        let navigateVC =  (mainStoryboard.instantiateViewController(withIdentifier: RetailHomeViewController.identifier) as? RetailHomeViewController)!
+ //       let navigateVC = RetailDataSourceController()
         return navigateVC
     }
         

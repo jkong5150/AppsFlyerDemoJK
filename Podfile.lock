@@ -1,16 +1,20 @@
 PODS:
-  - AppsFlyerFramework (5.1.0)
+  - AppsFlyerFramework (5.4.4)
+  - LBTAComponents (1.1)
 
 DEPENDENCIES:
   - AppsFlyerFramework
+  - LBTAComponents
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - AppsFlyerFramework
+    - LBTAComponents
 
 SPEC CHECKSUMS:
-  AppsFlyerFramework: b5e6d0d1718c445eeb151769e97246c00ae4628d
+  AppsFlyerFramework: a511099f7bedbb1d5804d733c6152d6f8092c4fa
+  LBTAComponents: 2e7719683ddcf1cdf7280700438c0c6a5f7da550
 
-PODFILE CHECKSUM: b3881d589c2955e78c9bd5664c4a73cbf076e1a1
+PODFILE CHECKSUM: 5d5b62e71fcbf8e72c46af7c09731b6ca621fdd6
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.9.3

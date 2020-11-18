@@ -6,9 +6,11 @@
 	<string>development</string>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
+		<string>applinks:invite.afsatools.com</string>
 		<string>applinks:schwadbjk.onelink.me</string>
 		<string>applinks:click.sflink.afsdktests.com</string>
 		<string>applinks:demojk.onelink.me</string>
+		<string>applinks:afsatools.com</string>
 	</array>
 </dict>
 </plist>
