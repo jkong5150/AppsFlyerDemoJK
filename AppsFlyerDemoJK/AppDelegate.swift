@@ -12,13 +12,13 @@ import UserNotifications
 
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate, UNUserNotificationCenterDelegate{
+class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerLibDelegate, UNUserNotificationCenterDelegate{
 
     var window: UIWindow?
      var navigateTo: String?
     
     @objc func sendLaunch(app:Any) {
-        AppsFlyerTracker.shared().trackAppLaunch()
+        AppsFlyerLib.shared().start()
     }
     
 
@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate, 
         // Override point for customization after application launch.
         
         /*** CHANGE THE VERTICAL!!! (Retail, Finance, etc.) *****/
-        let vertical : String = Verticals.retail.rawValue
+        let vertical : String = Verticals.finance.rawValue
         /*** SA CHANGE THIS!!!!   *****/
         
         //add dummy user logins
@@ -37,16 +37,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate, 
         registerForPushNotifications()
         UNUserNotificationCenter.current().requestAuthorization(options:[.badge, .alert, .sound]){ (granted, error) in }
         application.registerForRemoteNotifications()
-        AppsFlyerTracker.shared().useUninstallSandbox = true
+        AppsFlyerLib.shared().useUninstallSandbox = true
         
-        AppsFlyerTracker.shared().appsFlyerDevKey = "tRiUHG43JTfCZrp6LnXrhD"
-        AppsFlyerTracker.shared().appleAppID = "211122514"
-        AppsFlyerTracker.shared().delegate = self
+        AppsFlyerLib.shared().appsFlyerDevKey = "tRiUHG43JTfCZrp6LnXrhD"
+        AppsFlyerLib.shared().appleAppID = "211122514"
+        AppsFlyerLib.shared().delegate = self
+        
+        //add line below if doing deeplnking using unified deeplinking
+        AppsFlyerLib.shared().deepLinkDelegate = self
         /* Set isDebug to true to see AppsFlyer debug logs */
-        AppsFlyerTracker.shared().isDebug = true
+        AppsFlyerLib.shared().isDebug = true
         
         
-        AppsFlyerTracker.shared().resolveDeepLinkURLs = ["click.sflink.afsdktests.com"]
+        AppsFlyerLib.shared().resolveDeepLinkURLs = ["click.sflink.afsdktests.com"]
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(sendLaunch),
@@ -70,7 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate, 
       let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
       let token = tokenParts.joined()
       print("Device Token: \(token)")
-      AppsFlyerTracker.shared().registerUninstall(deviceToken)
+      AppsFlyerLib.shared().registerUninstall(deviceToken)
     }
     
     // Deeplinking
@@ -78,13 +81,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate, 
     // Open URI-scheme for iOS 9 and above
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         print("Here is the URL: \(url)")
-        AppsFlyerTracker.shared().handleOpen(url, options: options)
+        AppsFlyerLib.shared().handleOpen(url, options: options)
         return true
     }
     
     // Open URI-scheme for iOS 8 and below
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        AppsFlyerTracker.shared().handleOpen(url, sourceApplication: sourceApplication, withAnnotation: annotation)
+        AppsFlyerLib.shared().handleOpen(url, sourceApplication: sourceApplication, withAnnotation: annotation)
         return true
     }
     
@@ -92,19 +95,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate, 
     // For Swift version < 4.2 replace function signature with the commented out code
     // func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool { // this line for Swift < 4.2
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-        AppsFlyerTracker.shared().continue(userActivity, restorationHandler: nil)
+        AppsFlyerLib.shared().continue(userActivity, restorationHandler: nil)
         return true
     }
     
     // Report Push Notification attribution data for re-engagements
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         print(userInfo)
-        AppsFlyerTracker.shared().handlePushNotification(userInfo)
+        AppsFlyerLib.shared().handlePushNotification(userInfo)
     }
     
     
-    // MARK: *** AppsFlyerTrackerDelegate implementation ***
-    
+    // MARK: *** AppsFlyerLibDelegate implementation ***
+
     //Mark: Handle Conversion Data (Deferred Deep Link)
     func onConversionDataSuccess(_ data: [AnyHashable: Any]) {
        // print("\(data)")
@@ -139,23 +142,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate, 
     }
     
     //Handle Direct Deep Link
-    func onAppOpenAttribution(_ data: [AnyHashable: Any]) {
-        print("OAOA")
-        if let link = data["link"]{
-            print("link:  \(link)")
-        }
-        for (key,value) in data{
-            print("key: \(key), value: \(value)")
-        }
-        
-        //this seems to work if the user has to login.
-        if let navigateTo = data["af_sub1"] as? String {
-            setNavigateTo(navigateTo: navigateTo)
-            //push the modal
-            pushDeepLinkVC()
-        }
-        
-    }
+//    func onAppOpenAttribution(_ data: [AnyHashable: Any]) {
+//        print("OAOA")
+//        if let link = data["link"]{
+//            print("link:  \(link)")
+//        }
+//        for (key,value) in data{
+//            print("key: \(key), value: \(value)")
+//        }
+//
+//        //this seems to work if the user has to login.
+//        if let navigateTo = data["af_sub1"] as? String {
+//            setNavigateTo(navigateTo: navigateTo)
+//            //push the modal
+//            pushDeepLinkVC()
+//        }
+//
+//    }
     
 // MARK:  *** PUSH  NOTIFICATIONS: UNUserNotificationCenterDelegate ****
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
@@ -170,11 +173,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate, 
             return
         }
         setNavigateTo(navigateTo: afsub1)
-        AppsFlyerTracker.shared().handlePushNotification(response.notification.request.content.userInfo)
+        AppsFlyerLib.shared().handlePushNotification(response.notification.request.content.userInfo)
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        AppsFlyerTracker.shared().handlePushNotification(notification.request.content.userInfo)
+        AppsFlyerLib.shared().handlePushNotification(notification.request.content.userInfo)
         print("userNotificationCenter: willPresent")
     }
     
@@ -372,3 +375,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate,AppsFlyerTrackerDelegate, 
 
 }
 
+extension AppDelegate: DeepLinkDelegate {
+    func didResolveDeepLink(_ result: DeepLinkResult) {
+        switch result.status {
+        case .notFound:
+            print("Deep link not found")
+        case .found:
+            let deepLinkStr:String = result.deepLink!.toString()
+            print("DeepLink data is: \(deepLinkStr)")
+            if( result.deepLink?.isDeferred == true) {
+                print("This is a deferred deep link")
+            } else {
+                print("This is a direct deep link")
+            }
+            //walkToSceneWithParams(deepLinkObj: result.deepLink!)
+            setNavigateTo(navigateTo: result.deepLink?.deeplinkValue)
+            //push the modal
+            pushDeepLinkVC()
+            
+        case .failure:
+            print("Error %@", result.error!)
+        }
+    }
+    
+}

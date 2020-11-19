@@ -1,5 +1,7 @@
 PODS:
-  - AppsFlyerFramework (5.4.4)
+  - AppsFlyerFramework (6.1.1):
+    - AppsFlyerFramework/Main (= 6.1.1)
+  - AppsFlyerFramework/Main (6.1.1)
   - LBTAComponents (1.1)
 
 DEPENDENCIES:
@@ -12,7 +14,7 @@ SPEC REPOS:
     - LBTAComponents
 
 SPEC CHECKSUMS:
-  AppsFlyerFramework: a511099f7bedbb1d5804d733c6152d6f8092c4fa
+  AppsFlyerFramework: b26dca2329493c2ba3b3877d2f220af37a3108b6
   LBTAComponents: 2e7719683ddcf1cdf7280700438c0c6a5f7da550
 
 PODFILE CHECKSUM: 5d5b62e71fcbf8e72c46af7c09731b6ca621fdd6
