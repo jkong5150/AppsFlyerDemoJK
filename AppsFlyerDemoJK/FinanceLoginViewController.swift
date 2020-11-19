@@ -113,7 +113,7 @@ class FinanceLoginViewController: UIViewController {
         //max screen
         navigateVC.modalPresentationStyle = .fullScreen
         
-        AppsFlyerTracker.shared().trackEvent(AFEventLogin, withValues: nil)
+        AppsFlyerLib.shared().logEvent(AFEventLogin, withValues: nil)
         present(navigateVC, animated: true, completion: nil)
     }
 }
